@@ -1,0 +1,42 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Aureliano Piqueras, based on Rafael Corchuelo's DP Starter project.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.challenge.form.label.title = Title
+administrator.challenge.form.label.deadline = Deadline
+administrator.challenge.form.label.description = Description
+administrator.challenge.form.label.expert = Expert
+administrator.challenge.form.label.average = Average
+administrator.challenge.form.label.rookie = Rookie
+administrator.challenge.form.label.reward = Reward
+administrator.challenge.form.label.goal = Goal
+
+administrator.challenge.form.button.return = Return
+
+administrator.challenge.list.label.title = Title
+administrator.challenge.list.label.deadline = Deadline
+administrator.challenge.list.label.description = Description
+administrator.challenge.list.label.expertGoal = Expert Goal
+administrator.challenge.list.label.expertReward = Expert Reward
+administrator.challenge.list.label.averageGoal = Average Goal
+administrator.challenge.list.label.averageReward = Average Reward
+administrator.challenge.list.label.rookieGoal = Rookie Goal
+administrator.challenge.list.label.rookieReward = Rookie Reward
+
+
+administrator.challenge.form.button.create = Create
+administrator.challenge.form.button.update = Update
+administrator.challenge.form.button.delete = Delete
+
+errors.challenge.deadline.future = The date must be in the future
+errors.challenge.reward.money.amount-positive = The amount must be positive
+errors.challenge.reward.money.euro = The money must be in euro '€' / 'EUR'
+errors.challenge.expertReward.amount-major = The amount of expert must be higher than average and rookie
+errors.challenge.averageReward.amount-medium = The amount of silver must be higher than rookie and lower than expert
+errors.challenge.rookieReward.amount-minor = The amount of bronze must be lower than average and expert

@@ -1,0 +1,20 @@
+administrator.tool.form.label.title= Título: 
+administrator.tool.form.label.inventorName = Nombre Del Inversor:
+administrator.tool.form.label.sector = Sector:
+administrator.tool.form.label.description = Descripción:
+administrator.tool.form.label.website = Página web:
+administrator.tool.form.label.email = Correo electrónico:
+administrator.tool.form.label.isOpenSource = Open source:
+
+administrator.tool.form.label.starsNumber = Estrellas:
+administrator.tool.form.button.return = Return
+
+administrator.tool.list.label.title= Título
+administrator.tool.list.label.sector = Sector
+administrator.tool.list.label.starsNumber = Estrellas
+
+
+administrator.tool.form.button.update = Actualizar
+administrator.tool.form.button.delete = Eliminar
+administrator.tool.form.button.create = Crear
+

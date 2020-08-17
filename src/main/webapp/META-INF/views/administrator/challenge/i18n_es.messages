@@ -1,0 +1,43 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Aureliano Piqueras, based on Rafael Corchuelo's DP Starter project.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.challenge.form.label.title = Título
+administrator.challenge.form.label.deadline = Fecha límite
+administrator.challenge.form.label.description = Descripción
+administrator.challenge.form.label.expert = Experto
+administrator.challenge.form.label.average = Medio
+administrator.challenge.form.label.rookie = Principiante
+administrator.challenge.form.label.reward = Recompensa
+administrator.challenge.form.label.goal = Meta
+	
+administrator.challenge.form.button.return = Volver
+
+administrator.challenge.list.label.title = Título
+administrator.challenge.list.label.deadline = Fecha Límite
+administrator.challenge.list.label.description = Descripción
+administrator.challenge.list.label.expertGoal =  Meta Experto 
+administrator.challenge.list.label.expertReward = Recompensa Experto 
+administrator.challenge.list.label.averageGoal = Meta Medio
+administrator.challenge.list.label.averageReward = Recompensa Medio
+administrator.challenge.list.label.rookieGoal = Meta Principiante
+administrator.challenge.list.label.rookieReward = Recompensa Principiante
+
+
+
+administrator.challenge.form.button.create = Crear
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.delete = Borrar
+
+errors.challenge.deadline.future = La fecha debe estar en el futuro
+errors.challenge.reward.money.amount-positive = La cantidad debe ser positiva
+errors.challenge.reward.money.euro = La moneda tiene que ser el euro '€' / 'EUR'
+errors.challenge.goldReward.amount-major = La cantidad de experto debe ser mayor que la de medio y la de principiante
+errors.challenge.silverReward.amount-medium = La cantidad de medio debe ser mayor que la principiante y menor que la experto
+errors.challenge.bronzeReward.amount-minor = La cantidad del principiante debe ser menor que la de experto y la de medio

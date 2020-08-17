@@ -1,0 +1,18 @@
+administrator.tool.form.label.title= Title: 
+administrator.tool.form.label.inventorName = Inventor Name:
+administrator.tool.form.label.sector = Sector:
+administrator.tool.form.label.description = Description:
+administrator.tool.form.label.website = Website:
+administrator.tool.form.label.email = Email:
+administrator.tool.form.label.isOpenSource = Open source:
+administrator.tool.form.label.starsNumber = Stars:
+administrator.tool.form.button.return = Return
+
+administrator.tool.list.label.title = Title
+administrator.tool.list.label.sector = Sector
+administrator.tool.list.label.starsNumber = Stars
+
+
+administrator.tool.form.button.update = Update
+administrator.tool.form.button.delete = Delete
+administrator.tool.form.button.create = Create

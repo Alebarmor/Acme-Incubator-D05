@@ -1,0 +1,16 @@
+anonymous.tool.form.label.title= Title: 
+anonymous.tool.form.label.inventorName = Inventor Name:
+anonymous.tool.form.label.sector = Sector:
+anonymous.tool.form.label.description = Description:
+anonymous.tool.form.label.website = Website:
+anonymous.tool.form.label.email = Email:
+anonymous.tool.form.label.isOpenSource = Open source:
+anonymous.tool.form.label.starsNumber = Stars:
+anonymous.tool.form.button.return = Return
+
+anonymous.tool.list.label.title = Title
+anonymous.tool.list.label.sector = Sector
+anonymous.tool.list.label.starsNumber = Stars
+
+
+

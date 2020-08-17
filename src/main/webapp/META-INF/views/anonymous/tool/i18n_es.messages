@@ -1,0 +1,15 @@
+anonymous.tool.form.label.title= Título: 
+anonymous.tool.form.label.inventorName = Nombre Del Inversor:
+anonymous.tool.form.label.sector = Sector:
+anonymous.tool.form.label.description = Descripción:
+anonymous.tool.form.label.website = Página web:
+anonymous.tool.form.label.email = Correo electrónico:
+anonymous.tool.form.label.isOpenSource = Open source:
+
+anonymous.tool.form.label.starsNumber = Estrellas:
+
+anonymous.tool.form.button.return = Return
+
+anonymous.tool.list.label.title= Título
+anonymous.tool.list.label.sector = Sector
+anonymous.tool.list.label.starsNumber = Estrellas
