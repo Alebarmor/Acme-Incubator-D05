@@ -1,4 +1,8 @@
 
+    alter table `activity` 
+       drop 
+       foreign key `FK8cnxt6m91noqrbuk63luhvebv`;
+
     alter table `administrator` 
        drop 
        foreign key FK_2a5vcjo3stlfcwadosjfq49l1;

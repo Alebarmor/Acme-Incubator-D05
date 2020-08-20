@@ -1,0 +1,9 @@
+entrepreneur.activity.list.label.title = Título
+entrepreneur.activity.list.label.budget = Presupuesto
+
+entrepreneur.activity.form.label.title = Título:
+entrepreneur.activity.form.label.start = Inicio:
+entrepreneur.activity.form.label.end = Fin:
+entrepreneur.activity.form.label.budget = Presupuesto:
+
+entrepreneur.activity.form.button.return = Volver

@@ -1,4 +1,5 @@
 
+
 package acme.entities.investmentRounds;
 
 import java.util.Date;
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -41,6 +43,7 @@ public class Investment extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
+	@Pattern(regexp = "^[A-Z]{3}[-][0-9]{2}[-][0-9]{6}$")
 	private String				ticker;
 
 	@NotNull
@@ -64,10 +67,6 @@ public class Investment extends DomainEntity {
 	@URL
 	private String				additionalInformation;
 
-	//@NotNull
-	//@Valid
-	//private Set<Activity>		workProgramme;
-
 	// Relationships --------------------------------------------------------------
 
 	@NotNull
@@ -76,3 +75,4 @@ public class Investment extends DomainEntity {
 	private Entrepreneur		entrepreneur;
 
 }
+

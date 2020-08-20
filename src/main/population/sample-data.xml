@@ -340,121 +340,32 @@
 		<property name="email" value="example4@email.com"/>
 	</bean>
 	
-	
-	<!-- Applications -->
-	
-	<bean name="application1" class="acme.entities.applications.Application">
 
-		<property name="ticker" value="AAA-99-090909"/>
-
-		<property name="creationMoment" value="2000/11/11 14:30"/>
-		<property name="statement" value="Statement 1"/>
-		<property name="offer" value="€ 15,000.50"/>
-		<property name="investmentRound" ref="investmentRound1"/> 
-		<property name="investor" ref="investor1Investor"/> 
-	</bean>
+	<!-- Entrepreneurs  -->
 	
-	<!-- Investment rounds -->
-	
-	<bean name="investmentRound1" class="acme.entities.investmentRounds.Investment">
-		<property name="ticker" value="EMP1-JOB1"/>
-		<property name="title" value="Title 1"/>
-		<property name="creationMoment" value="2000/11/11 14:30"/>
-		<property name="amount" value="€ 15,000.50"/>
-		<property name="description" value="This is the first job in the system."/>
-		<property name="additionalInformation" value="http://www.example1.com"/>
-		<property name="roundKind" value="ANGEL"/>
-		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
-	</bean>
-	
-	<!-- <bean name="application2" class="acme.entities.applications.Job">
-		<property name="reference" value="EMP1-JOB2"/>
-		<property name="title" value="Title 2"/>
-		<property name="deadline" value="2025/10/01 11:35"/>
-		<property name="salary" value="€ 20,000"/>
-		<property name="description" value="This is the second application in the system."/>
-		<property name="moreInfo" value="http://www.example2.com"/>
-		<property name="finalMode" value="false"/>
-		<property name="employer" ref="employer1Employer"/>
-	</bean>
-	
-	<bean name="application3" class="acme.entities.applications.Job">
-		<property name="reference" value="EMP1-JOB3"/>
-		<property name="title" value="Title 3"/>
-		<property name="deadline" value="2019/05/14 10:30"/>
-		<property name="salary" value="€ 55,210.00"/>
-		<property name="description" value="This is the third application in the system."/>
-		<property name="moreInfo"><null/></property>
-		<property name="finalMode" value="false"/>
-		<property name="employer" ref="employer1Employer"/>
-	</bean>
-	
-	<bean name="application4" class="acme.entities.applications.Job">
-		<property name="reference" value="EMP2-JOB4"/>
-		<property name="title" value="Title 4"/>
-		<property name="deadline" value="2024/01/01 12:30"/>
-		<property name="salary" value="€ 5,000.82"/>
-		<property name="description" value="This is the fourth application in the system."/>
-		<property name="moreInfo"><null/></property>
-		<property name="finalMode" value="true"/>
-		<property name="employer" ref="employer2Employer"/>
-	</bean>
-	
-	<bean name="application5" class="acme.entities.applications.Job">
-		<property name="reference" value="EMP2-JOB5"/>
-		<property name="title" value="Title 5"/>
-		<property name="deadline" value="2024/06/08 10:30"/>
-		<property name="salary" value="€ 80,000.50"/>
-		<property name="description" value="This is the fifth application in the system."/>
-		<property name="moreInfo" value="http://www.example5.com"/>
-		<property name="finalMode" value="false"/>
-		<property name="employer" ref="employer2Employer"/>
-	</bean>
-	
-	<bean name="application6" class="acme.entities.applications.Job">
-		<property name="reference" value="EMP2-JOB6"/>
-		<property name="title" value="Title 6"/>
-		<property name="deadline" value="2020/01/05 11:00"/>
-		<property name="salary" value="€ 20,000.80"/>
-		<property name="description" value="This is the sixth application in the system."/>
-		<property name="moreInfo" value="http://www.example6.com"/>
-		<property name="finalMode" value="true"/>
-		<property name="employer" ref="employer2Employer"/>
-	</bean> -->
-	
-		<!-- Investors -->
-		
-		<bean name="investor1UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="investor1"/>
-		<property name="password" value="investor1"/>
-		<property name="enabled" value="true"/>
+	<bean name="entrepreneurUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="entrepreneur" />
+		<property name="password" value="entrepreneur" />
+		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Investor"/>
-				<property name="surname" value="One"/>
-				<property name="email" value="investor1@acme.com"/>
+				<property name="name" value="Entrepreneur" />
+				<property name="surname" value="Acme" />
+				<property name="email" value="entrepreneur@acme.com" />
+
 			</bean>
 		</property>
 		<property name="roles">
 			<list>
-				<ref bean="investor1Investor"/>
-				<ref bean="investor1Authenticated"/>
+
+				<ref bean="entrepreneur01" />
+				<ref bean="entrepreneurAuthenticated" />
+
 			</list>
 		</property>
 	</bean>
 	
-	<bean name="investor1Investor" class="acme.entities.roles.Investor">
-		<property name="firmName" value="Investor co."/>
-		<property name="sector" value="Sector 1"/>
-		<property name="profile" value="profile 1"/>
-		<property name="userAccount" ref="investor1UserAccount"/>
-	</bean>
 	
-	<bean name="investor1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="investor1UserAccount"/>
-	</bean>
-	
-		<!-- Entrepreneur -->
 	
 	<bean name="entrepreneur1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="entrepreneur1"/>
@@ -519,5 +430,162 @@
 	<bean name="entrepreneur2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="entrepreneur2UserAccount"/>
 	</bean>
+	
+	
+
+	<bean name="entrepreneur01" class="acme.entities.roles.Entrepreneur">
+		<property name="userAccount" ref="entrepreneurUserAccount"/>
+		<property name="startUpName" value="Entrepreneur01" />
+		<property name="sector" value="Informatic" />
+		<property name="qualifications" value="University" />
+		<property name="skills" value="Too high" />
+	</bean>
+	
+	<bean name="entrepreneurAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="entrepreneurUserAccount" />
+	</bean>
+	
+	
+	<!-- Investment Rounds  -->
+	
+	<bean id="activity01" class="acme.entities.investmentRounds.Activity">
+		<property name="title" value="Activity 1"/>
+		<property name="start" value="2020/07/27 00:00"/>
+		<property name="end" value="2020/09/23 00:00"/>
+		<property name="budget" value="234.99 €"/>
+		<property name="investment">
+			<ref bean="investment01"/>
+		</property>
+	</bean>
+	
+	<bean id="activity02" class="acme.entities.investmentRounds.Activity">
+		<property name="title" value="Activity 2"/>
+		<property name="start" value="2020/06/12 00:00"/>
+		<property name="end" value="2020/09/30 00:00"/>
+		<property name="budget" value="156.00 €"/>
+		<property name="investment">
+			<ref bean="investment01"/>
+		</property>
+	</bean>
+	
+	<bean id="activity03" class="acme.entities.investmentRounds.Activity">
+		<property name="title" value="Activity 3"/>
+		<property name="start" value="2020/07/27 00:00"/>
+		<property name="end" value="2020/09/23 00:00"/>
+		<property name="budget" value="234.99 €"/>
+		<property name="investment">
+			<ref bean="investment02"/>
+		</property>
+	</bean>
+	
+	<bean id="activity04" class="acme.entities.investmentRounds.Activity">
+		<property name="title" value="Activity 4"/>
+		<property name="start" value="2020/06/12 00:00"/>
+		<property name="end" value="2020/09/30 00:00"/>
+		<property name="budget" value="156.00 €"/>
+		<property name="investment">
+			<ref bean="investment02"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="investment01" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="FNB-09-732312"/>
+		<property name="creationMoment" value="2020/07/27 00:00"/>
+		<property name="roundKind" value="ANGEL"/>
+		<property name="title" value="Sample investment 01"/>
+		<property name="description" value="This is the description of the investment"/>
+		<property name="amount" value="300.00 €"/>
+		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="entrepreneur">
+			<ref bean="entrepreneur01"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="investment02" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="FNA-09-732312"/>
+		<property name="creationMoment" value="2020/01/27 00:00"/>
+		<property name="roundKind" value="ANGEL"/>
+		<property name="title" value="Sample investment 02"/>
+		<property name="description" value="This is the description of the investment"/>
+		<property name="amount" value="300.00 €"/>
+		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="entrepreneur">
+			<ref bean="entrepreneur01"/>
+		</property>
+	</bean>
+	
+	
+	<!-- Applications -->
+	
+	<bean name="application1" class="acme.entities.applications.Application">
+		<property name="ticker" value="AAA-99-090909"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="statement" value="Statement 1"/>
+		<property name="offer" value="€ 15,000.50"/>
+		<property name="investmentRound" ref="investmentRound1"/> 
+		<property name="investor" ref="investor1Investor"/> 
+	</bean>
+	
+	<bean name="application2" class="acme.entities.applications.Application">
+		<property name="ticker" value="AAB-99-090909"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="statement" value="Statement 1"/>
+		<property name="offer" value="€ 15,000.50"/>
+		<property name="investmentRound" ref="investmentRound1"/> 
+		<property name="investor" ref="investor1Investor"/> 
+	</bean>
+	
+	
+	<!-- Investors -->
+		
+		<bean name="investor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="investor1"/>
+		<property name="password" value="investor1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Investor"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="investor1@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="investor1Investor"/>
+				<ref bean="investor1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="investor1Investor" class="acme.entities.roles.Investor">
+		<property name="firmName" value="Investor co."/>
+		<property name="sector" value="Sector 1"/>
+		<property name="profile" value="profile 1"/>
+		<property name="userAccount" ref="investor1UserAccount"/>
+	</bean>
+	
+	<bean name="investor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="investor1UserAccount"/>
+	</bean>
+	
+		
+		
+	<!-- Investment rounds -->
+	
+	<bean name="investmentRound1" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="EME-01-012901"/>
+		<property name="title" value="Title 1"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="amount" value="€ 15,000.50"/>
+		<property name="description" value="This is the first job in the system."/>
+		<property name="additionalInformation" value="http://www.example1.com"/>
+		<property name="roundKind" value="ANGEL"/>
+		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
+	</bean>
+	
+	
+
 
 </beans>

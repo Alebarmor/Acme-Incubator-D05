@@ -10,7 +10,7 @@
 
 entrepreneur.application.list.label.offer	= Offer
 entrepreneur.application.list.label.creationMoment = CreationMoment
-
+entrepreneur.application.list.label.ticker = Ticker
 
 
 entrepreneur.application.form.label.ticker	= Ticker

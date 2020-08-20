@@ -8,6 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
+# master.menu.investor ###################################################
+master.menu.investor = Inversor
+master.menu.investor.application.list= Lista de aplicaciones
+
+
+# master.menu.entrepreneur ###################################################
+
+master.menu.entrepreneur = Emprendedor
+master.menu.entrepreneur.investment.list = Mi lista de inversiones
+master.menu.entrepreneur.application.list = Mi lista de solicitudes
+
 # master.banner.welcome #######################################################
 
 master.banner.background = #FFE97F 
@@ -45,6 +57,8 @@ master.menu.anonymous.notice.list = Lista de avisos activos
 master.menu.anonymous.notice = Avisos
 
 # master.menu.authenticated #######################################################
+
+master.menu.authenticated.investment.list = Lista de inversiones
 
 master.menu.authenticated.overture = Propuestas
 master.menu.authenticated.overture.list = Lista de propuestas
@@ -91,7 +105,10 @@ master.menu.administrator.overture.create = Crear propuesta
 # master.menu.authenticated ###################################################
 master.menu.authenticated = Autenticado
 
+# master.menu.entrepreneur ###################################################
 
+master.menu.entrepreneur = Empresario
+master.menu.entrepreneur.investment.list = Mi lista de inversiones
 
 # master.menu.provider ########################################################
 

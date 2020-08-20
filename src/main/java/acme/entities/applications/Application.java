@@ -15,7 +15,9 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import acme.entities.investmentRounds.Investment;
+
 import acme.entities.roles.Entrepreneur;
+
 import acme.entities.roles.Investor;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;

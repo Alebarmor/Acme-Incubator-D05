@@ -7,6 +7,7 @@
         `end` datetime(6),
         `start` datetime(6),
         `title` varchar(255),
+        `investment_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -206,6 +207,11 @@ create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
+
+    alter table `activity` 
+       add constraint `FK8cnxt6m91noqrbuk63luhvebv` 
+       foreign key (`investment_id`) 
+       references `investment` (`id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 
