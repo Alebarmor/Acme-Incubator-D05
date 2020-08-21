@@ -106,6 +106,7 @@
         `amount_currency` varchar(255),
         `creation_moment` datetime(6),
         `description` varchar(255),
+        `final_mode` bit not null,
         `round_kind` integer,
         `ticker` varchar(255),
         `title` varchar(255),

@@ -579,10 +579,23 @@
 		<property name="title" value="Title 1"/>
 		<property name="creationMoment" value="2000/11/11 14:30"/>
 		<property name="amount" value="€ 15,000.50"/>
-		<property name="description" value="This is the first job in the system."/>
+		<property name="description" value="This is the first investment in the system."/>
 		<property name="additionalInformation" value="http://www.example1.com"/>
 		<property name="roundKind" value="ANGEL"/>
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
+		<property name="finalMode" value="true"/>
+	</bean>
+	
+	<bean name="investmentRound2" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="EME-02-012901"/>
+		<property name="title" value="Title 2"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="amount" value="€ 15,000.50"/>
+		<property name="description" value="This is the second investment in the system."/>
+		<property name="additionalInformation" value="http://www.example1.com"/>
+		<property name="roundKind" value="ANGEL"/>
+		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
+		<property name="finalMode" value="false"/>
 	</bean>
 	
 	
