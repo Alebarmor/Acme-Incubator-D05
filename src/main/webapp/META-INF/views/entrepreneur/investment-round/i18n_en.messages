@@ -9,7 +9,11 @@ entrepreneur.investmentRound.activity.list = Work programme
 entrepreneur.investmentRound.form.label.statement = Statement:
 entrepreneur.investmentRound.form.label.offer = Offer:
 entrepreneur.investmentRound.form.label.entrepreneur = Entrepreneur:
+entrepreneur.investmentRound.form.label.finalMode = Final Mode:
 
+entrepreneur.investmentRound.form.button.create = Create
+entrepreneur.investmentRound.form.button.update = Update
+entrepreneur.investmentRound.form.button.delete = Delete
 entrepreneur.investmentRound.form.button.return = Return
 
 entrepreneur.investmentRound.list.label.title = Title

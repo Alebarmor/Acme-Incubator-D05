@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Investment;
 import acme.framework.repositories.AbstractRepository;
 
@@ -20,5 +21,8 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 
 	@Query("select a.investment from Activity a where a.investment.entrepreneur.id =?1")
 	Collection<Investment> findInvestmentRoundsByEntrepreneurId(int id);
+
+	@Query("select a from Activity a where a.investment.id =?1")
+	Collection<Activity> findActivitiesByInvestment(int id);
 
 }
