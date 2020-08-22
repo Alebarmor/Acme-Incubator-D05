@@ -12,13 +12,9 @@
 
 package acme.features.entrepreneur.investmentRound;
 
-import java.util.Collection;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Investment;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
@@ -53,51 +49,25 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert errors != null;
 
-		Boolean sumBudgets;
+		Boolean superaMoney;
+		Double sumaBudget;
 
-		// Validación de cuándo puede ser finalMode
-		if (entity.getFinalMode()) {
-			if (!errors.hasErrors("finalMode")) {
-				sumBudgets = this.sumActivities(entity.getId());
-				errors.state(request, sumBudgets, "finalMode", "errors.job.is.finalMode.sumBudgets", "It can be finalMode when the Investment amount coincides with the sum up of the activities budgets");
+		// Validación del dinero
+
+		int cont = 0;
+		cont = this.repository.numberOfActivitiesByInvestmentId(entity.getId());
+		if (cont != 0) {
+
+			if (!errors.hasErrors("amount")) {
+				superaMoney = true;
+				sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
+				double actualAmount = entity.getAmount().getAmount();
+				if (actualAmount < sumaBudget) {
+					superaMoney = false;
+				}
+				errors.state(request, superaMoney, "amount", "entrepreneur.investment-round.form.error.dineroIncorrecto");
 			}
-
-			//			// Validación de Spam
-			//			if (!errors.hasErrors("title")) {
-			//				Boolean isSpam = this.spam(entity.getTitle());
-			//				errors.state(request, !isSpam, "title", "errors.job.description.spam", "Contain spam words");
-			//			}
-			//
-			//			if (!errors.hasErrors("description")) {
-			//				Boolean isSpam = this.spam(entity.getDescription());
-			//				errors.state(request, !isSpam, "description", "errors.job.description.spam", "Contain spam words");
-			//			}
-			//
-			//			if (!errors.hasErrors("additionalInformation")) {
-			//				Boolean isSpam = this.spam(entity.getAdditionalInformation());
-			//				errors.state(request, !isSpam, "moreInfo", "errors.job.description.spam", "Contain spam words");
-			//			}
-
 		}
-	}
-
-	private boolean sumActivities(final Integer idInvestment) {
-		Boolean result;
-		Collection<Activity> activities;
-		Investment inv;
-		Double sum = 0.0;
-		activities = this.repository.findActivitiesByInvestment(idInvestment);
-		inv = this.repository.findOneById(idInvestment);
-		for (Activity a : activities) {
-			Double precio = a.getBudget().getAmount();
-			sum = sum + precio;
-		}
-		if (sum == inv.getAmount().getAmount()) {
-			result = true;
-		} else {
-			result = false;
-		}
-		return result;
 	}
 
 	@Override
@@ -106,7 +76,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "creationMoment", "entrepreneur");
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -136,10 +106,16 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert request != null;
 		assert entity != null;
 
-		Date creationMoment;
+		int cont = 0;
+		cont = this.repository.numberOfActivitiesByInvestmentId(entity.getId());
+		if (cont != 0) {
 
-		creationMoment = new Date(System.currentTimeMillis() - 1);
-		entity.setCreationMoment(creationMoment);
+			double sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
+			double actualAmount = entity.getAmount().getAmount();
+			if (actualAmount == sumaBudget) {
+				entity.setFinalMode(true);
+			}
+		}
 
 		this.repository.save(entity);
 	}

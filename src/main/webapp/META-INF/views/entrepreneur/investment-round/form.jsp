@@ -24,20 +24,19 @@
     <acme:form-textarea code="entrepreneur.investmentRound.form.label.description" path="description" />
     <acme:form-money code="entrepreneur.investmentRound.form.label.amount" path="amount" />
     <acme:form-textbox code="entrepreneur.investmentRound.form.label.additionalInformation" path="additionalInformation" />
-	<acme:form-hidden path="finalMode"/>
 	
 	<jstl:if test="${command != 'create'}">
 		<acme:form-checkbox code="entrepreneur.investmentRound.form.label.finalMode" path="finalMode" readonly="true"/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'show'}">
-		<a href=/acme-incubator/entrepreneur/activity/list?id=${id}><acme:message code="entrepreneur.activity.list" /></a>
+		<a href=/acme-incubator/entrepreneur/activity/list?id=${id}><acme:message code="entrepreneur.investmentRound.activity.list" /></a>
 	</jstl:if>
 
 	<p></p>
 
 	<jstl:if test="${finalMode == false}">
-		<acme:form-return code="entrepreneur.activity.form.button.create-workProgramme"
+		<acme:form-return code="entrepreneur.activity.form.button.create-application"
 			action="/entrepreneur/activity/create?investmentId=${id}" />
 	</jstl:if>
 	

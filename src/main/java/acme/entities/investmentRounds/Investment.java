@@ -66,6 +66,7 @@ public class Investment extends DomainEntity {
 	@URL
 	private String				additionalInformation;
 
+	@NotNull
 	private boolean				finalMode;
 
 	// Relationships --------------------------------------------------------------
@@ -74,10 +75,5 @@ public class Investment extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Entrepreneur		entrepreneur;
-
-
-	public boolean getFinalMode() {
-		return this.finalMode;
-	}
 
 }
