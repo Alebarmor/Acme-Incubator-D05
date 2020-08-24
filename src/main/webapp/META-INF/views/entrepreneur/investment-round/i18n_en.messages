@@ -15,5 +15,6 @@ entrepreneur.investmentRound.form.button.return = Return
 entrepreneur.investmentRound.list.label.title = Title
 entrepreneur.investmentRound.list.label.ticker = Ticker
 entrepreneur.investmentRound.list.label.amount = Amount
+entrepreneur.investmentRound.form.button.delete = Delete
 
 

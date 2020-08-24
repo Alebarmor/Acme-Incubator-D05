@@ -31,7 +31,7 @@
 
 	 <br>
 	<acme:form-return code="entrepreneur.investmentRound.form.button.return" />
-	<acme:form-submit test="${command == 'delete'}" code="entrepreneur.investment-round.form.button.delete"
-		action="/entrepreneur/investment-round/delete" />
+	<acme:form-submit  code="entrepreneur.investmentRound.form.button.delete"
+		action="/entrepreneur/investment/delete" />
 	
 </acme:form> 
