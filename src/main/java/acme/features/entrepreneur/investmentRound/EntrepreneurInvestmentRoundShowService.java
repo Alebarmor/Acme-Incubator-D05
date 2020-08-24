@@ -12,7 +12,7 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EntrepreneurInvestmentRoundsShowService implements AbstractShowService<Entrepreneur, Investment> {
+public class EntrepreneurInvestmentRoundShowService implements AbstractShowService<Entrepreneur, Investment> {
 
 	@Autowired
 	EntrepreneurInvestmentRoundRepository repository;

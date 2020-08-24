@@ -15,7 +15,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EntrepreneurInvestmentRoundsListMineService implements AbstractListService<Entrepreneur, Investment> {
+public class EntrepreneurInvestmentRoundListMineService implements AbstractListService<Entrepreneur, Investment> {
 
 	@Autowired
 	EntrepreneurInvestmentRoundRepository repository;
