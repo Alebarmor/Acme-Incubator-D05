@@ -72,6 +72,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `customisation` (
+       `id` integer not null,
+        `version` integer not null,
+        `activeid` integer,
+        `spam_threshold` double precision,
+        `spam_words` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `entrepreneur` (
        `id` integer not null,
         `version` integer not null,
@@ -106,6 +115,7 @@
         `amount_currency` varchar(255),
         `creation_moment` datetime(6),
         `description` varchar(255),
+        `final_mode` bit,
         `round_kind` integer,
         `ticker` varchar(255),
         `title` varchar(255),
@@ -203,6 +213,9 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+
+    alter table `customisation` 
+       add constraint `UK1o765i46wwf0qi0jg1annqkua` unique (`activeid`);
 create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
 
     alter table `user_account` 

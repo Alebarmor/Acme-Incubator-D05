@@ -1,5 +1,4 @@
 
-
 package acme.entities.investmentRounds;
 
 import java.util.Date;
@@ -67,6 +66,9 @@ public class Investment extends DomainEntity {
 	@URL
 	private String				additionalInformation;
 
+	//cambio D05
+	private Boolean				finalMode;
+
 	// Relationships --------------------------------------------------------------
 
 	@NotNull
@@ -75,4 +77,3 @@ public class Investment extends DomainEntity {
 	private Entrepreneur		entrepreneur;
 
 }
-

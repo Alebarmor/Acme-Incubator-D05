@@ -497,6 +497,7 @@
 		<property name="description" value="This is the description of the investment"/>
 		<property name="amount" value="300.00 €"/>
 		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="finalMode" value="true"/>
 		<property name="entrepreneur">
 			<ref bean="entrepreneur01"/>
 		</property>
@@ -511,6 +512,7 @@
 		<property name="description" value="This is the description of the investment"/>
 		<property name="amount" value="300.00 €"/>
 		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="finalMode" value="true"/>
 		<property name="entrepreneur">
 			<ref bean="entrepreneur01"/>
 		</property>
