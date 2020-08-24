@@ -104,7 +104,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		}
 
 		// Validación moneda
-		if (!errors.hasErrors("salary")) {
+		if (!errors.hasErrors("amount")) {
 			isEuro = entity.getAmount().getCurrency().equals("EUR") || entity.getAmount().getCurrency().equals("€");
 			errors.state(request, isEuro, "amount", "errors.investment.amount.money.euro", "The money must be in euro '€' / 'EUR'");
 		}

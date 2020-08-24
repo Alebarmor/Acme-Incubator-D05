@@ -84,6 +84,7 @@
 		<!-- Entrepreneur  -->
 		<acme:menu-option code="master.menu.entrepreneur" access="hasRole('Entrepreneur')">
 		<acme:menu-suboption code="master.menu.entrepreneur.investment.list" action="/entrepreneur/investment/list-mine"/>
+		<acme:menu-suboption code="master.menu.entrepreneur.investment.create" action="/entrepreneur/investment/create"/>
 		<acme:menu-suboption code="master.menu.entrepreneur.application.list" action="/entrepreneur/application/list-mine"/>
 		</acme:menu-option>	
 		
