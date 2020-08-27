@@ -22,8 +22,8 @@
 	<acme:form-money code="investor.application.form.label.offer" path="offer"/>
 	
 	
-	
-	
+	<acme:form-submit test="${command == 'create'}" code="investor.application.form.button.create"
+		action="/investor/application/create?investId=${id}" />
 	
 	
 	<acme:form-return code="investor.application.form.button.return"/>

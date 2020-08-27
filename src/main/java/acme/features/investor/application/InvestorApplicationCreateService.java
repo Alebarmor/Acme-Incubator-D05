@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.investmentRounds.Investment;
+import acme.entities.roles.Entrepreneur;
 import acme.entities.roles.Investor;
+import acme.features.entrepreneur.investmentRound.EntrepreneurInvestmentRoundRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -18,16 +21,20 @@ import acme.framework.services.AbstractCreateService;
 public class InvestorApplicationCreateService implements AbstractCreateService<Investor, Application> {
 
 	@Autowired
-	private InvestorApplicationRepository repository;
+	private InvestorApplicationRepository	repository;
+
+	@Autowired
+	EntrepreneurInvestmentRoundRepository	repositoryInvest;
 
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		Application application = this.repository.findOneApplicationById(request.getModel().getInteger("id"));
+		//Application application = this.repository.findOneApplicationById(request.getModel().getInteger("id"));
 
-		return application == null;
+		//return application == null;
+		return true;
 	}
 
 	@Override
@@ -45,8 +52,8 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creationMoment", "statement", "offer");
-		model.setAttribute("id", request.getModel().getInteger("id"));
+		request.unbind(entity, model, "ticker", "creationMoment", "statement", "offer", "investmentRound.ticker");
+		model.setAttribute("investId", entity.getInvestmentRound().getId());
 	}
 
 	@Override
@@ -59,8 +66,11 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		principal = request.getPrincipal();
 		//		accountId = principal.getActiveRoleId();
 		idInvestment = request.getModel().getInteger("id");
+		Entrepreneur entrepreneur;
 		result = new Application();
 
+		Investment ir = this.repositoryInvest.findOneInvestmentRoundById(idInvestment);
+		entrepreneur = ir.getEntrepreneur();
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
 		int investorId = principal.getAccountId();
@@ -72,7 +82,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		result.setCreationMoment(moment);
 		result.setInvestor(investor);
 		result.setInvestmentRound(this.repository.findOneInvestmentRoundById(idInvestment));
-
+		result.setEntrepreneur(entrepreneur);
 		//result.setSkills(skills);
 		//result.setQualifications(qualifications);
 		return result;
