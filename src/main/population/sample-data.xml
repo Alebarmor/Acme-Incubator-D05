@@ -599,4 +599,12 @@
 	</bean>
 	
 	
+	<!-- Customisation -->
+
+	<bean id="Customisation" class="acme.entities.customisations.Customisation">
+		<property name="spam" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millón de dólares"/>
+		<property name="threshold" value="2.50"/>
+		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"/>
+	</bean>
+	
 </beans>
