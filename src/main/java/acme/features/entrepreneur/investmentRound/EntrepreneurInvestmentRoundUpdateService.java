@@ -12,6 +12,10 @@
 
 package acme.features.entrepreneur.investmentRound;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,25 +53,30 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert errors != null;
 
-		Boolean superaMoney;
-		Double sumaBudget;
+		int id = entity.getId();
+		Boolean finalMode = this.repository.isFinalMode(id);
 
-		// Validación del dinero
+		// Validación del finalMode
 
-		int cont = 0;
-		cont = this.repository.numberOfActivitiesByInvestmentId(entity.getId());
-		if (cont != 0) {
-
-			if (!errors.hasErrors("amount")) {
-				superaMoney = true;
-				sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
-				double actualAmount = entity.getAmount().getAmount();
-				if (actualAmount < sumaBudget) {
-					superaMoney = false;
-				}
-				errors.state(request, superaMoney, "amount", "entrepreneur.investment-round.form.error.dineroIncorrecto");
-			}
+		if (!errors.hasErrors("roundKind")) {
+			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES-A", "SERIES-B", "SERIES-C", "BRIDGE"));
+			Boolean correct = kinds.contains(entity.getRoundKind().toString());
+			errors.state(request, correct, "roundKind", "errors.investment.roundKind", entity.getRoundKind());
 		}
+
+		if (!errors.hasErrors("finalMode") && entity.getFinalMode() == true) {
+			double sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
+			double actualAmount = entity.getAmount().getAmount();
+			Boolean correctAmount = actualAmount == sumaBudget;
+			if (!correctAmount) {
+				entity.setFinalMode(false);
+			} else {
+				entity.setFinalMode(true);
+			}
+			errors.state(request, correctAmount, "amount", "errors.investment.amount", entity.getAmount());
+			errors.state(request, !finalMode, "finalMode", "errors.investment.isFinalMode", entity.getFinalMode());
+		}
+
 	}
 
 	@Override
@@ -76,7 +85,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "creationMoment");
 	}
 
 	@Override
@@ -85,7 +94,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation", "finalMode");
+		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation");
 	}
 
 	@Override
@@ -105,17 +114,6 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	public void update(final Request<Investment> request, final Investment entity) {
 		assert request != null;
 		assert entity != null;
-
-		int cont = 0;
-		cont = this.repository.numberOfActivitiesByInvestmentId(entity.getId());
-		if (cont != 0) {
-
-			double sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
-			double actualAmount = entity.getAmount().getAmount();
-			if (actualAmount == sumaBudget) {
-				entity.setFinalMode(true);
-			}
-		}
 
 		this.repository.save(entity);
 	}

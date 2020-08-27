@@ -34,7 +34,7 @@ public class EntrepreneurInvestmentRoundsListMineService implements AbstractList
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "ticker", "amount");
+		request.unbind(entity, model, "title", "ticker", "amount", "finalMode");
 	}
 
 	@Override

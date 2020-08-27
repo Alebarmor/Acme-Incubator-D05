@@ -31,4 +31,7 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select sum(a.budget.amount) from Activity a where a.investment.id = ?1")
 	Double sumBudgetWorkProgramme(int id);
 
+	@Query("select i.finalMode from Investment i where i.id = ?1")
+	Boolean isFinalMode(int id);
+
 }

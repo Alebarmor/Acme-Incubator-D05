@@ -5,11 +5,13 @@ entrepreneur.investmentRound.form.label.roundKind = Kind:
 entrepreneur.investmentRound.form.label.description = Description:
 entrepreneur.investmentRound.form.label.amount = Amount:
 entrepreneur.investmentRound.form.label.additionalInformation = Additional information:
-entrepreneur.investmentRound.activity.list = Work programme
 entrepreneur.investmentRound.form.label.statement = Statement:
 entrepreneur.investmentRound.form.label.offer = Offer:
 entrepreneur.investmentRound.form.label.entrepreneur = Entrepreneur:
 entrepreneur.investmentRound.form.label.finalMode = Final Mode
+
+entrepreneur.investmentRound.activity.list = Work programme
+entrepreneur.activity.form.button.create-activity = New activity
 
 entrepreneur.investmentRound.form.button.create = Create
 entrepreneur.investmentRound.form.button.update = Update
@@ -17,7 +19,10 @@ entrepreneur.investmentRound.form.button.delete = Delete
 entrepreneur.investmentRound.form.button.return = Return
 
 entrepreneur.investmentRound.list.label.title = Title
+entrepreneur.investmentRound.list.label.finalMode = Final Mode
 entrepreneur.investmentRound.list.label.ticker = Ticker
 entrepreneur.investmentRound.list.label.amount = Amount
 
-
+errors.investment.amount = The amount does not sum up the budgets of the work programme
+errors.investment.isFinalMode = An investment round in final mode cannot be updated
+eerrors.investment.roundKind = rrors.investment.roundKind = These are the only correct values: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE
