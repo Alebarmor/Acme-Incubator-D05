@@ -69,8 +69,8 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		Entrepreneur entrepreneur;
 		result = new Application();
 
-		Investment ir = this.repositoryInvest.findOneInvestmentRoundById(idInvestment);
-		entrepreneur = ir.getEntrepreneur();
+		Investment i = this.repositoryInvest.findOneInvestmentRoundById(idInvestment);
+		entrepreneur = i.getEntrepreneur();
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
 		int investorId = principal.getAccountId();

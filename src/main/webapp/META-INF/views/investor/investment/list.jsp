@@ -5,6 +5,6 @@
 
 <acme:list>
 	<acme:list-column code="investor.investmentRound.list.label.ticker" path="ticker"/>
-	<acme:list-column code="investor.investmentRound.form.label.kindRound" path="kindRound"/>
+	<acme:list-column code="investor.investmentRound.form.label.kindRound" path="roundKind"/>
 	<acme:list-column code="investor.investmentRound.form.label.title" path="title"/>
 </acme:list>
