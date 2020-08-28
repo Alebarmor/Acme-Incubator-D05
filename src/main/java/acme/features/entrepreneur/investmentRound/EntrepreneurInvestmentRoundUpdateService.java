@@ -19,8 +19,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customisations.Customisation;
 import acme.entities.investmentRounds.Investment;
 import acme.entities.roles.Entrepreneur;
+import acme.features.administrator.customisations.AdministratorCustomisationRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -35,7 +37,10 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private EntrepreneurInvestmentRoundRepository repository;
+	private EntrepreneurInvestmentRoundRepository	repository;
+
+	@Autowired
+	private AdministratorCustomisationRepository	spamRepository;
 
 
 	// AbstractUpdateService<Authenticated, Consumer> interface -----------------
@@ -56,6 +61,9 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		int id = entity.getId();
 		Boolean finalMode = this.repository.isFinalMode(id);
 
+		List<Customisation> ca = (List<Customisation>) this.spamRepository.findManyAll();
+		Customisation c = ca.get(0);
+
 		// Validación del finalMode
 
 		if (!errors.hasErrors("roundKind")) {
@@ -75,6 +83,16 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 			}
 			errors.state(request, correctAmount, "amount", "errors.investment.amount", entity.getAmount());
 			errors.state(request, !finalMode, "finalMode", "errors.investment.isFinalMode", entity.getFinalMode());
+		}
+
+		if (!errors.hasErrors("title")) {
+			Boolean isSpam = c.isSpam(entity.getTitle());
+			errors.state(request, !isSpam, "title", "errors.investment.spam", entity.getTitle());
+		}
+
+		if (!errors.hasErrors("description")) {
+			Boolean isSpam = c.isSpam(entity.getDescription());
+			errors.state(request, !isSpam, "description", "errors.investment.spam", entity.getDescription());
 		}
 
 	}

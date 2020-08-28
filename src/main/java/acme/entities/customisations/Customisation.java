@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
@@ -27,5 +28,36 @@ public class Customisation extends DomainEntity {
 
 	@NotBlank
 	private String				activitySectors;
+
+
+	public Boolean isSpam(final String str) {
+		boolean res = false;
+
+		Double cont = 0.0;
+
+		String[] spam = this.spam.toLowerCase().split(",");
+
+		String[] words = str.toLowerCase().replace(".", "").replace(",", "").split(" ");
+
+		String newStr = str.toLowerCase();
+
+		Double n = (double) words.length;
+
+		for (String s : spam) {
+			s = s.trim();
+			cont += StringUtils.countMatches(newStr, s);
+		}
+
+		Double porcentage = cont / n * 100;
+
+		res = porcentage >= this.threshold;
+
+		return res;
+	}
+
+	public Integer cuentaPalabras(final String s) {
+		String[] words = s.split(" ");
+		return words.length;
+	}
 
 }

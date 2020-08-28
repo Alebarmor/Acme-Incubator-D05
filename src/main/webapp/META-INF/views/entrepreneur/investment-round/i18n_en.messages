@@ -1,7 +1,7 @@
 entrepreneur.investmentRound.form.label.title = Title:
 entrepreneur.investmentRound.form.label.ticker = Ticker:
 entrepreneur.investmentRound.form.label.creationMoment = Creation moment:
-entrepreneur.investmentRound.form.label.roundKind = Kind:
+entrepreneur.investmentRound.form.label.roundKind = Kind (SEED | ANGEL | SERIES_A | SERIES_B | SERIES_C | BRIDGE):
 entrepreneur.investmentRound.form.label.description = Description:
 entrepreneur.investmentRound.form.label.amount = Amount:
 entrepreneur.investmentRound.form.label.additionalInformation = Additional information:
@@ -25,4 +25,5 @@ entrepreneur.investmentRound.list.label.amount = Amount
 
 errors.investment.amount = The amount does not sum up the budgets of the work programme
 errors.investment.isFinalMode = An investment round in final mode cannot be updated
-eerrors.investment.roundKind = rrors.investment.roundKind = These are the only correct values: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE
+errors.investment.roundKind = These are the only correct values: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE
+errors.investment.spam = This sentence contains too much spam words
