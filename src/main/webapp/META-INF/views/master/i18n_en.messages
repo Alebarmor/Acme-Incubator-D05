@@ -104,6 +104,7 @@ master.menu.investor.application.list= Applications list
 
 master.menu.entrepreneur = Entrepreneur
 master.menu.entrepreneur.investment.list = My Investment List
+master.menu.entrepreneur.investment.create = Create investment rounds
 master.menu.entrepreneur.application.list = My application list
 
 # master.menu.provider ########################################################

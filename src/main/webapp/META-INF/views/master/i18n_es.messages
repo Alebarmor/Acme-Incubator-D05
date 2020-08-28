@@ -18,6 +18,7 @@ master.menu.investor.application.list= Lista de aplicaciones
 
 master.menu.entrepreneur = Emprendedor
 master.menu.entrepreneur.investment.list = Mi lista de inversiones
+master.menu.entrepreneur.investment.create = Crear lista de inversiones
 master.menu.entrepreneur.application.list = Mi lista de solicitudes
 
 # master.banner.welcome #######################################################

@@ -92,7 +92,6 @@
 
 <acme:form>
 
-
 	<acme:form-textbox code="entrepreneur.investmentRound.form.label.title" path="title" />
 	<jstl:if test="${command =='create'}">
     	<acme:form-textbox code="entrepreneur.investmentRound.form.label.ticker" path="ticker" />

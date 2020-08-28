@@ -1,19 +1,9 @@
-/*
- * AuthenticatedConsumerUpdateService.java
- *
- * Copyright (c) 2019 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.entrepreneur.investmentRound;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,32 +14,65 @@ import acme.entities.investmentRounds.Investment;
 import acme.entities.roles.Entrepreneur;
 import acme.features.administrator.customisations.AdministratorCustomisationRepository;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
-import acme.framework.helpers.PrincipalHelper;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateService<Entrepreneur, Investment> {
+public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateService<Entrepreneur, Investment> {
 
-	// Internal state ---------------------------------------------------------
+	// Internal state --------------------------------------------------------------------------
 
 	@Autowired
-	private EntrepreneurInvestmentRoundRepository	repository;
+	EntrepreneurInvestmentRoundRepository			repository;
 
 	@Autowired
 	private AdministratorCustomisationRepository	spamRepository;
 
-
-	// AbstractUpdateService<Authenticated, Consumer> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Investment> request) {
 		assert request != null;
 
 		return true;
+	}
+
+	@Override
+	public void bind(final Request<Investment> request, final Investment entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "entrepreneur", "creationMoment");
+	}
+
+	@Override
+	public void unbind(final Request<Investment> request, final Investment entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "roundKind", "title", "description", "description", "amount", "additionalInformation", "finalMode");
+	}
+
+	@Override
+	public Investment instantiate(final Request<Investment> request) {
+		Investment result;
+		result = new Investment();
+
+		Principal principal;
+		int userAccountId;
+		Entrepreneur Entrepreneur;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+		Entrepreneur = this.repository.findOneEntrepreneurByUserAccount(userAccountId);
+
+		result.setEntrepreneur(Entrepreneur);
+		result.setFinalMode(false);
+
+		return result;
 	}
 
 	@Override
@@ -102,52 +125,11 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	}
 
 	@Override
-	public void bind(final Request<Investment> request, final Investment entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "creationMoment");
-	}
-
-	@Override
-	public void unbind(final Request<Investment> request, final Investment entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-
-		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation", "finalMoment");
-	}
-
-	@Override
-	public Investment findOne(final Request<Investment> request) {
-		assert request != null;
-
-		Investment result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
-
-		return result;
-	}
-
-	@Override
-	public void update(final Request<Investment> request, final Investment entity) {
-		assert request != null;
-		assert entity != null;
-
+	public void create(final Request<Investment> request, final Investment entity) {
+		Date creationMomentDate;
+		creationMomentDate = new Date(System.currentTimeMillis() - 1);
+		entity.setCreationMoment(creationMomentDate);
 		this.repository.save(entity);
-	}
-
-	@Override
-	public void onSuccess(final Request<Investment> request, final Response<Investment> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-		}
 	}
 
 }
