@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Investment;
+import acme.entities.roles.Entrepreneur;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -33,5 +34,8 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 
 	@Query("select i.finalMode from Investment i where i.id = ?1")
 	Boolean isFinalMode(int id);
+
+	@Query("select et from Entrepreneur et where et.userAccount.id = ?1")
+	Entrepreneur findOneEntrepreneurByUserAccount(int userAccountId);
 
 }
