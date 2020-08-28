@@ -36,7 +36,7 @@ public class EntrepreneurApplicationListMineService implements AbstractListServi
 		//model.setAttribute("status", entity.getStatus().toString());
 		//model.setAttribute("investmentRound", entity.getInvestmentRound().getTitle());
 
-		request.unbind(entity, model, "creationMoment", "ticker", "statement", "offer");
+		request.unbind(entity, model, "creationMoment", "ticker");
 
 	}
 

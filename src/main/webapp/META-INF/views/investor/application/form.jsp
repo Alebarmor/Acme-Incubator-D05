@@ -16,14 +16,15 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+<acme:form-hidden path="investId"/>
 	<acme:form-textbox code="investor.application.form.label.ticker" path="ticker"/>
-	<acme:form-moment code="investor.application.form.label.creationMoment" path="creationMoment"/>
+	<!--<acme:form-moment code="investor.application.form.label.creationMoment" path="creationMoment"/>-->
 	<acme:form-textbox code="investor.application.form.label.statement" path="statement"/>
 	<acme:form-money code="investor.application.form.label.offer" path="offer"/>
 	
 	
-	
-	
+	<acme:form-submit test="${command == 'create'}" code="investor.application.form.button.create"
+		action="/investor/application/create?id=${investId}" />
 	
 	
 	<acme:form-return code="investor.application.form.button.return"/>
