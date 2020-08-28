@@ -1,0 +1,11 @@
+authenticated.entrepreneur.form.title.create = Conviértete en emprendedor
+authenticated.entrepreneur.form.title.update = Actualizar datos de emprendedores
+
+authenticated.entrepreneur.form.label.startUpName = nombre del startUp:
+authenticated.entrepreneur.form.label.sector = Sector:
+authenticated.entrepreneur.form.label.qualifications = Calificaciones:
+authenticated.entrepreneur.form.label.skills = Habilidades:
+
+authenticated.entrepreneur.form.button.create = Registrarse
+authenticated.entrepreneur.form.button.update = Actualizar
+authenticated.entrepreneur.form.button.return = Volver

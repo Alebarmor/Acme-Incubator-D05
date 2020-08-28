@@ -130,6 +130,11 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
+master.menu.user-account.entrepreneur = Datos del emprendedor
+master.menu.user-account.become-entrepreneur = Conviértete en emprendedor
+master.menu.user-account.investor = Datos del inversor
+master.menu.user-account.become-investor = Conviértete en inversor
+
 ﻿# master.footer ###############################################################
 
 master.footer.title.about = Nosotros

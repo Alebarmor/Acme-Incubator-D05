@@ -1,4 +1,5 @@
 
+
     create table `activity` (
        `id` integer not null,
         `version` integer not null,
@@ -272,3 +273,4 @@ create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+

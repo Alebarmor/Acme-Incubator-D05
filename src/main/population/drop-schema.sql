@@ -1,4 +1,5 @@
 
+
     alter table `activity` 
        drop 
        foreign key `FK8cnxt6m91noqrbuk63luhvebv`;
@@ -80,3 +81,4 @@
     drop table if exists `user_account`;
 
     drop table if exists `hibernate_sequence`;
+
