@@ -1,4 +1,4 @@
-entrepreneur.investmentRound.form.label.title = Títlo:
+entrepreneur.investmentRound.form.label.title = Título:
 entrepreneur.investmentRound.form.label.ticker = Ticker:
 entrepreneur.investmentRound.form.label.creationMoment = Fecha de creación:
 entrepreneur.investmentRound.form.label.roundKind = Tipo (SEED | ANGEL | SERIES_A | SERIES_B | SERIES_C | BRIDGE):
@@ -21,9 +21,16 @@ entrepreneur.investmentRound.form.button.return = Volver
 entrepreneur.investmentRound.list.label.title = Título
 entrepreneur.investmentRound.list.label.finalMode = Modo final
 entrepreneur.investmentRound.list.label.ticker = Ticker
-entrepreneur.investmentRound.list.label.amount = Cantidad
+
+entrepreneur.investmentRound.list.label.amount = Cantidad 
+entrepreneur.investmentRound.form.button.delete = Eliminar
+
+errors.investment.hasApplications = Una ronda de inversión puede ser eliminada siempre y cuando un inversor no lo haya solicitado
+
+
 
 errors.investment.amount = La cantidad no suma los presupuestos del programa de trabajo
 errors.investment.isFinalMode = Una ronda de inversión no puede ser actualizada si está en modo final
 errors.investment.roundKind = Estos son los únicos valores correctos: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE
 errors.investment.spam = Esta frase contiene demasiadas palabras spam
+
