@@ -587,7 +587,5 @@
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
 	</bean>
 	
-	
-
 
 </beans>

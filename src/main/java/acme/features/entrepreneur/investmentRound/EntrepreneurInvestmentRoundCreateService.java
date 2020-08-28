@@ -1,7 +1,6 @@
 
 package acme.features.entrepreneur.investmentRound;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "entrepreneur");
+		request.bind(entity, errors, "entrepreneur", "creationMoment");
 	}
 
 	@Override
@@ -48,7 +47,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "creationMoment", "roundKind", "title", "description", "description", "amount", "additionalInformation", "finalMode");
+		request.unbind(entity, model, "roundKind", "title", "description", "description", "amount", "additionalInformation", "finalMode");
 	}
 
 	@Override
@@ -82,20 +81,6 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		Boolean unique = null;
 		unique = this.repository.findTickerOfInvestment(entity.getTicker()) != null;
 		errors.state(request, !unique, "ticker", "errors.Investment.ticker.unique", "The ticker must be unique");
-
-		// Validación de fecha de creación
-		if (!errors.hasErrors("creationMoment")) {
-			Date fechaActual, fecha;
-			fechaActual = new Date();
-
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(fechaActual);
-			calendar.add(Calendar.DAY_OF_WEEK, 7);
-			fecha = calendar.getTime();
-
-			isPast = entity.getCreationMoment().before(fecha);
-			errors.state(request, isPast, "creationMoment", "errors.investment.deadline.future", "Creation Moment must be in past and within a week");
-		}
 
 		// Validación dinero positivo
 		if (!errors.hasErrors("amount")) {
@@ -134,6 +119,9 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 	@Override
 	public void create(final Request<Investment> request, final Investment entity) {
+		Date creationMomentDate;
+		creationMomentDate = new Date(System.currentTimeMillis() - 1);
+		entity.setCreationMoment(creationMomentDate);
 		this.repository.save(entity);
 	}
 
