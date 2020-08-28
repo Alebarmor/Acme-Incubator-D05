@@ -488,6 +488,7 @@
 		</property>
 	</bean>
 	
+
 	
 	<bean id="investment01" class="acme.entities.investmentRounds.Investment">
 		<property name="ticker" value="FNB-09-732312"/>
@@ -519,6 +520,7 @@
 	</bean>
 	
 	
+
 	<!-- Applications -->
 	
 	<bean name="application1" class="acme.entities.applications.Application">
@@ -572,9 +574,7 @@
 	
 	<bean name="investor1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="investor1UserAccount"/>
-	</bean>
-	
-		
+	</bean>	
 		
 	<!-- Investment rounds -->
 	
@@ -583,13 +583,63 @@
 		<property name="title" value="Title 1"/>
 		<property name="creationMoment" value="2000/11/11 14:30"/>
 		<property name="amount" value="€ 15,000.50"/>
-		<property name="description" value="This is the first job in the system."/>
+		<property name="description" value="This is the first investment in the system."/>
 		<property name="additionalInformation" value="http://www.example1.com"/>
 		<property name="roundKind" value="ANGEL"/>
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
+		<property name="finalMode" value="true"/>
+	</bean>
+	
+	<bean name="investmentRound2" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="EME-02-012901"/>
+		<property name="title" value="Title 2"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="amount" value="€ 15,000.50"/>
+		<property name="description" value="This is the second investment in the system."/>
+		<property name="additionalInformation" value="http://www.example1.com"/>
+		<property name="roundKind" value="SEED"/>
+		<property name="entrepreneur" ref="entrepreneur1Entrepreneur"/>
+		<property name="finalMode" value="false"/>
+	</bean>
+	
+	<!-- Investment -->
+
+	<bean id="investment01" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="FNB-09-732312"/>
+		<property name="creationMoment" value="2020/07/27 00:00"/>
+		<property name="roundKind" value="ANGEL"/>
+		<property name="title" value="Sample investment 01"/>
+		<property name="description" value="This is the description of the investment"/>
+		<property name="amount" value="300.00 €"/>
+		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="finalMode" value="false"/>
+		<property name="entrepreneur">
+			<ref bean="entrepreneur01"/>
+		</property>
 	</bean>
 	
 	
+	<bean id="investment02" class="acme.entities.investmentRounds.Investment">
+		<property name="ticker" value="FNA-09-732312"/>
+		<property name="creationMoment" value="2020/01/27 00:00"/>
+		<property name="roundKind" value="SEED"/>
+		<property name="title" value="Sample investment 02"/>
+		<property name="description" value="This is the description of the investment"/>
+		<property name="amount" value="300.00 €"/>
+		<property name="additionalInformation" value="http://additionalexample.com"/>
+		<property name="entrepreneur">
+			<ref bean="entrepreneur01"/>
+		</property>
+		<property name="finalMode" value="false"/>
+	</bean>
+	
+	
+	<!-- Customisation -->
 
-
+	<bean id="Customisation" class="acme.entities.customisations.Customisation">
+		<property name="spam" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millón de dólares"/>
+		<property name="threshold" value="2.50"/>
+		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"/>
+	</bean>
+	
 </beans>

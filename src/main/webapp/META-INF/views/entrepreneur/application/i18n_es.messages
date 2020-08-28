@@ -8,7 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-entrepreneur.application.list.label.offer	= Oferta
 entrepreneur.application.list.label.creationMoment = Momento de creación
 entrepreneur.application.list.label.ticker = Ticker
 

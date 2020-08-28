@@ -63,7 +63,10 @@ public class Investment extends DomainEntity {
 	@Valid
 	private Money				amount;
 
-	public Boolean				finalMode;
+
+	@NotNull
+	private Boolean				finalMode;
+
 
 	@URL
 	private String				additionalInformation;

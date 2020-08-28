@@ -72,6 +72,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `customisation` (
+       `id` integer not null,
+        `version` integer not null,
+        `activity_sectors` varchar(255),
+        `spam` varchar(255),
+        `threshold` double precision,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `entrepreneur` (
        `id` integer not null,
         `version` integer not null,
@@ -106,6 +115,7 @@
         `amount_currency` varchar(255),
         `creation_moment` datetime(6),
         `description` varchar(255),
+        `final_mode` bit,
         `round_kind` integer,
         `ticker` varchar(255),
         `title` varchar(255),
