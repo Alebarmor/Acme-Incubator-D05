@@ -4,13 +4,11 @@ package acme.features.investor.investmentRounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Application;
 import acme.entities.investmentRounds.Investment;
 import acme.entities.roles.Investor;
 import acme.features.investor.application.InvestorApplicationRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -46,24 +44,6 @@ public class InvestorInvestmentRoundShowService implements AbstractShowService<I
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		Principal principal = request.getPrincipal();
-		int investorId = principal.getActiveRoleId();
-		int investmentId = entity.getId();
-
-		// Estas 4 lineas creo que ya no las necesitas
-
-		Application app = this.appRepository.findOneApplicationByInvestorIdAndInvestmentRoundId(investorId, investmentId);
-		System.out.println("la investment " + investmentId);
-		System.out.println("la investor " + investorId);
-		System.out.println(app);
-
-		int invId = request.getPrincipal().getActiveRoleId();
-		int cantidadApplications = this.appRepository.findApplicationsByInvestmentRoundId(entity.getId(), invId);
-
-		model.setAttribute("cantidadApplications", cantidadApplications);
-
-		request.getModel().setAttribute("app", app);
 
 		request.unbind(entity, model, "ticker", "creationMoment", "roundKind", "title", "description", "amount", "additionalInformation");
 	}

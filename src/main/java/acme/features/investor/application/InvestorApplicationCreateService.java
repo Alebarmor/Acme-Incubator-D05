@@ -64,7 +64,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 
 		int idInvestment;
 		principal = request.getPrincipal();
-		//		accountId = principal.getActiveRoleId();
+
 		idInvestment = request.getModel().getInteger("id");
 		Entrepreneur entrepreneur;
 		result = new Application();
@@ -75,16 +75,12 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		moment = new Date(System.currentTimeMillis() - 1);
 		int investorId = principal.getAccountId();
 		Investor investor = this.repository.findOneInvestorByUserAccountId(investorId);
-		//String firmName = investor.getFirmName();
-		//String profile = investor.getProfile();
-		//String sector = investor.getSector();
 
 		result.setCreationMoment(moment);
 		result.setInvestor(investor);
 		result.setInvestmentRound(this.repository.findOneInvestmentRoundById(idInvestment));
 		result.setEntrepreneur(entrepreneur);
-		//result.setSkills(skills);
-		//result.setQualifications(qualifications);
+
 		return result;
 	}
 

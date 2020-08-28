@@ -15,7 +15,8 @@
 	
 	
 	
-		<acme:form-return code="investor.application.create" action="/investor/application/create?investId=${id}"/>
+	
+		<acme:form-return code="investor.application.create" action="/investor/application/create?id=${id}"/>
 	
 	
 	
