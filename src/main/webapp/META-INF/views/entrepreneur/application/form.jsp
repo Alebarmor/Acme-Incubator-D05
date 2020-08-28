@@ -21,10 +21,5 @@
 	<acme:form-textbox code="entrepreneur.application.form.label.statement" path="statement"/>
 	<acme:form-money code="entrepreneur.application.form.label.offer" path="offer"/>
 	
-	
-	
-	
-	
-	
 	<acme:form-return code="entrepreneur.application.form.button.return"/>
 </acme:form>
