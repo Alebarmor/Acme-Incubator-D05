@@ -54,9 +54,18 @@
 	<acme:form-submit test="${command == 'show' && !finalMode}" 
 		code="entrepreneur.investmentRound.form.button.update"
 		action="/entrepreneur/investment/update" />
+	<acme:form-submit test="${command == 'show'}" 
+		code="entrepreneur.investmentRound.form.button.delete"
+		action="/entrepreneur/investment/delete" />
+	<acme:form-submit test="${command == 'create'}" 
+		code="entrepreneur.investmentRound.form.button.create"
+		action="/entrepreneur/investment/create" />
 	<acme:form-submit test="${command == 'update' && !finalMode}" 
 		code="entrepreneur.investmentRound.form.button.update"
 		action="/entrepreneur/investment/update" />
+	<acme:form-submit test="${command == 'delete'}" 
+		code="entrepreneur.investmentRound.form.button.delete"
+		action="/entrepreneur/investment/delete" />
     
 	<acme:form-return code="entrepreneur.investmentRound.form.button.return" />
 </acme:form> 
