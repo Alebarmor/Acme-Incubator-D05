@@ -41,7 +41,7 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "investor");
+		request.bind(entity, errors, "entrepreneur", "creationMoment");
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "creationMoment", "roundKind", "title", "description", "amount", "additionalInformation");
+		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation", "finalMode");
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		applications = this.repository.findApplicationByInvestmentId(entity.getId());
 
 		if (applications != null && !applications.isEmpty()) {
-			errors.state(request, false, "ticker", "errors.investment.hasApplications", "An investment round can be deleted as long as no investor has applied for it");
+			errors.state(request, false, "finalMode", "errors.investment.hasApplications", "An investment round can be deleted as long as no investor has applied for it");
 		}
 
 	}

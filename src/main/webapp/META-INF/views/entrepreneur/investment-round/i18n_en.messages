@@ -18,3 +18,4 @@ entrepreneur.investmentRound.list.label.amount = Amount
 entrepreneur.investmentRound.form.button.delete = Delete
 
 
+errors.investment.hasApplications = An investment round can be deleted as long as no investor has applied for it

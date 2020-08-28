@@ -18,7 +18,7 @@ investor.application.form.label.creationMoment	= Creation moment
 investor.application.form.label.statement = Statement
 investor.application.form.label.offer	= Offer
 
-
+investor.application.form.button.create = Create application
 investor.application.form.button.return = Return
 
 investor.application.ticker.pattern = match the pattern: “SSS-YY-NNNNNN”.  “SSS” denotes the sector, “YY” denotes the creation year; and “NNNNNN” is number in range 0 up to 999999
