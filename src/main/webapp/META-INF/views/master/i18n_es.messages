@@ -18,6 +18,7 @@ master.menu.investor.application.list= Lista de aplicaciones
 
 master.menu.entrepreneur = Emprendedor
 master.menu.entrepreneur.investment.list = Mi lista de inversiones
+master.menu.entrepreneur.investment.create = Crear lista de inversiones
 master.menu.entrepreneur.application.list = Mi lista de solicitudes
 
 # master.banner.welcome #######################################################
@@ -85,10 +86,8 @@ master.menu.administrator.shutdown = Parar el sistema
 master.menu.administrator.technologyRecord.list = Lista de registros de tecnología
 master.menu.administrator.technologyRecord.create = Crear registro de tecnología
 
-
 master.menu.administrator.notice.create =Crear aviso
 master.menu.administrator.notice.list = Lista de avisos
-
 
 master.menu.administrator.inquire.list = Lista de consultas
 master.menu.administrator.inquire.create = Crear consulta
@@ -101,6 +100,8 @@ master.menu.administrator.challenge.create = Crear reto
 
 master.menu.administrator.overture.list = Lista de propuestas
 master.menu.administrator.overture.create = Crear propuesta
+
+master.menu.administrator.customisation = Customización
 
 # master.menu.authenticated ###################################################
 master.menu.authenticated = Autenticado

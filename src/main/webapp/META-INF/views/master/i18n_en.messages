@@ -90,27 +90,21 @@ master.menu.administrator.challenge.create = Create challenges
 master.menu.administrator.overture.list = Overtures list
 master.menu.administrator.overture.create = Create overture
 
-
-
+master.menu.administrator.customisation = Customisation
 
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Authenticated
 
-
-
-
-
-
 # master.menu.investor ###################################################
 master.menu.investor = Investor
 master.menu.investor.application.list= Applications list
-
 
 # master.menu.entrepreneur ###################################################
 
 master.menu.entrepreneur = Entrepreneur
 master.menu.entrepreneur.investment.list = My Investment List
+master.menu.entrepreneur.investment.create = Create investment rounds
 master.menu.entrepreneur.application.list = My application list
 
 # master.menu.provider ########################################################

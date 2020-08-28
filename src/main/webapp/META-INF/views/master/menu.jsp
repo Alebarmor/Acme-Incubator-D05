@@ -78,12 +78,15 @@
 		<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
 		<acme:menu-separator/>
 		<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+		<acme:menu-separator/>
+		<acme:menu-suboption code="master.menu.administrator.customisation" action="/administrator/customisation/show"/>
 		</acme:menu-option>
 		
 		
 		<!-- Entrepreneur  -->
 		<acme:menu-option code="master.menu.entrepreneur" access="hasRole('Entrepreneur')">
 		<acme:menu-suboption code="master.menu.entrepreneur.investment.list" action="/entrepreneur/investment/list-mine"/>
+		<acme:menu-suboption code="master.menu.entrepreneur.investment.create" action="/entrepreneur/investment/create"/>
 		<acme:menu-suboption code="master.menu.entrepreneur.application.list" action="/entrepreneur/application/list-mine"/>
 		</acme:menu-option>	
 		

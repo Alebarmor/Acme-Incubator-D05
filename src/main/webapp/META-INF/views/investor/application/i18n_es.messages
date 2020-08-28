@@ -18,7 +18,7 @@ investor.application.form.label.creationMoment	= Momento de creación
 investor.application.form.label.statement = Estado
 investor.application.form.label.offer	= Oferta
 
-
+investor.application.form.button.create = Crear solicitud
 investor.application.form.button.return = Volver
 
 investor.application.ticker.pattern = Debe cumplir el patrón: “SSS-YY-NNNNNN”.  “SSS” denota el sector, “YY” denota el año de creación y “NNNNNN” es un número entre 0 y 999999

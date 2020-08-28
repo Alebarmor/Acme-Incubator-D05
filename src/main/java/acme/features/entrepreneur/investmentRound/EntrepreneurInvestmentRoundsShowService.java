@@ -43,7 +43,7 @@ public class EntrepreneurInvestmentRoundsShowService implements AbstractShowServ
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "ticker", "creationMoment", "roundKind", "amount", "description", "additionalInformation");
+		request.unbind(entity, model, "title", "ticker", "creationMoment", "roundKind", "amount", "description", "additionalInformation", "finalMode");
 	}
 
 	@Override

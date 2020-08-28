@@ -1,4 +1,5 @@
 
+
     create table `activity` (
        `id` integer not null,
         `version` integer not null,
@@ -72,6 +73,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `customisation` (
+       `id` integer not null,
+        `version` integer not null,
+        `activity_sectors` varchar(255),
+        `spam` varchar(255),
+        `threshold` double precision,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `entrepreneur` (
        `id` integer not null,
         `version` integer not null,
@@ -106,6 +116,7 @@
         `amount_currency` varchar(255),
         `creation_moment` datetime(6),
         `description` varchar(255),
+        `final_mode` bit,
         `round_kind` integer,
         `ticker` varchar(255),
         `title` varchar(255),
@@ -262,3 +273,4 @@ create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
