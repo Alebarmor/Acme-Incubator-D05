@@ -15,12 +15,11 @@ package acme.entities.customisations;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -40,22 +39,45 @@ public class Customisation extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotBlank
+	private String				spam;
+
+	@Range(min = 0, max = 100)
 	@NotNull
-	@Digits(integer = 3, fraction = 2)
-	@Min(0)
-	@Max(100)
-	private Double				spamThreshold;
+	private Double				threshold;
 
 	@NotBlank
-	//	@Pattern(regexp = "^(\\S+(\\s\\S+)*(,\\S)*)*$")
-	@Pattern(regexp = "^(.+?)(?:,|$)$")
-	private String				spamWords;
+	private String				activitySectors;
 
-	@NotNull
-	private Integer				activeID;
 
-	// Derived attributes -----------------------------------------------------
+	public Boolean isSpam(final String str) {
+		boolean res = false;
 
-	// Relationships ----------------------------------------------------------
+		Double cont = 0.0;
+
+		String[] spam = this.spam.toLowerCase().split(",");
+
+		String[] words = str.toLowerCase().replace(".", "").replace(",", "").split(" ");
+
+		String newStr = str.toLowerCase();
+
+		Double n = (double) words.length;
+
+		for (String s : spam) {
+			s = s.trim();
+			cont += StringUtils.countMatches(newStr, s);
+		}
+
+		Double porcentage = cont / n * 100;
+
+		res = porcentage >= this.threshold;
+
+		return res;
+	}
+
+	public Integer cuentaPalabras(final String s) {
+		String[] words = s.split(" ");
+		return words.length;
+	}
 
 }
