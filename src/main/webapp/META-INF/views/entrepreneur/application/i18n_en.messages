@@ -18,6 +18,16 @@ entrepreneur.application.form.label.statement = Statement
 entrepreneur.application.form.label.offer	= Offer
 
 
+
+entrepreneur.application.form.label.status = Status
+entrepreneur.application.form.label.status.pending = Pending
+entrepreneur.application.form.label.status.accepted = Accepted
+entrepreneur.application.form.label.status.rejected = Rejected
+entrepreneur.application.form.label.rejectionJustification = Rejection justification
+entrepreneur.application.form.error.rejectionJustification = You have to justificate the rejection
+entrepreneur.application.form.button.update = Update status
+
+
 entrepreneur.application.form.button.return = Return
 
 entrepreneur.application.ticker.pattern = match the pattern: “SSS-YY-NNNNNN”.  “SSS” denotes the sector, “YY” denotes the creation year; and “NNNNNN” is number in range 0 up to 999999

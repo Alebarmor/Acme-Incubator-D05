@@ -46,6 +46,11 @@ public class Application extends DomainEntity {
 	private String				statement;
 
 	@NotNull
+	private ApplicationStatus	status;					// PENDIENTE, ACEPTADO O RECHAZADO
+
+	private String				rejectionJustification;			// OBLIGATORIO AL RECHAZAR
+
+	@NotNull
 	@Valid
 	private Money				offer;
 
@@ -71,11 +76,11 @@ public class Application extends DomainEntity {
 	/*
 	 * @Transient
 	 * public Entrepreneur getEntrepreneur() {
-	 * 
+	 *
 	 * Entrepreneur result;
 	 * result = new Entrepreneur();
 	 * result = this.investmentRound.getEntrepreneur();
-	 * 
+	 *
 	 * return result;
 	 * }
 	 */

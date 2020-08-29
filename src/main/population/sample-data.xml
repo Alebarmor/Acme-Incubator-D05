@@ -494,6 +494,8 @@
 		<property name="ticker" value="AAA-99-090909"/>
 		<property name="creationMoment" value="2000/11/11 14:30"/>
 		<property name="statement" value="Statement 1"/>
+		<property name="status" value="PENDING" />
+  		<property name="rejectionJustification" value="" />
 		<property name="offer" value="€ 15,000.50"/>
 		<property name="investmentRound" ref="investmentRound1"/> 
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
@@ -505,10 +507,37 @@
 		<property name="creationMoment" value="2000/11/11 14:30"/>
 		<property name="statement" value="Statement 1"/>
 		<property name="offer" value="€ 15,000.50"/>
+			<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
 		<property name="investmentRound" ref="investmentRound1"/> 
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
 		<property name="investor" ref="investor1Investor"/> 
 	</bean>
+	
+		<bean name="application3" class="acme.entities.applications.Application">
+		<property name="ticker" value="ZZZ-99-093409"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="statement" value="Statement 1"/>
+		<property name="status" value="PENDING" />
+  		<property name="rejectionJustification" value="" />
+		<property name="offer" value="€ 19,000.50"/>
+		<property name="investmentRound" ref="investmentRound1"/> 
+		<property name="entrepreneur" ref="entrepreneur01" />
+		<property name="investor" ref="investor1Investor"/> 
+	</bean>
+	
+	<bean name="application4" class="acme.entities.applications.Application">
+		<property name="ticker" value="FAB-20-044909"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="statement" value="Statement 1"/>
+		<property name="offer" value="€ 13,000.50"/>
+			<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
+		<property name="investmentRound" ref="investmentRound1"/> 
+		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
+		<property name="investor" ref="investor1Investor"/> 
+	</bean>
+	
 	
 	
 	<!-- Investors -->
@@ -581,7 +610,7 @@
 		<property name="additionalInformation" value="http://additionalexample.com"/>
 		<property name="finalMode" value="false"/>
 		<property name="entrepreneur">
-			<ref bean="entrepreneur01"/>
+		           <ref bean="entrepreneur01"/>
 		</property>
 	</bean>
 	
