@@ -67,7 +67,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		// Validación del Round Kind
 
 		if (!errors.hasErrors("roundKind")) {
-			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES-A", "SERIES-B", "SERIES-C", "BRIDGE"));
+			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES_A", "SERIES_B", "SERIES_C", "BRIDGE"));
 			Boolean correct = kinds.contains(entity.getRoundKind().toString());
 			errors.state(request, correct, "roundKind", "errors.investment.roundKind", entity.getRoundKind());
 		}
