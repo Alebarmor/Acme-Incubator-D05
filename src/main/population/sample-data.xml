@@ -571,6 +571,38 @@
 	<bean name="investor1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="investor1UserAccount"/>
 	</bean>	
+	
+	
+	<!--  -->
+	<bean name="investor2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="investor2" />
+		<property name="password" value="investor2" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Investor 2" />
+				<property name="surname" value="Two" />
+				<property name="email" value="investor2@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="investor2Investor" />
+				<ref bean="investor2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="investor2Investor" class="acme.entities.roles.Investor">
+		<property name="firmName" value="Entrepreneurs2" />
+		<property name="sector" value="Science" />
+		<property name="profile" value="Profile2" />
+		<property name="userAccount" ref="investor2UserAccount" />
+	</bean>
+
+	<bean name="investor2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="investor2UserAccount" />
+	</bean>
 		
 	<!-- Investment rounds -->
 	
