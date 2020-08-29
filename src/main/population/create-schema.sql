@@ -1,5 +1,4 @@
 
-
     create table `activity` (
        `id` integer not null,
         `version` integer not null,
@@ -34,6 +33,7 @@
         `offer_currency` varchar(255),
         `statement` varchar(255),
         `ticker` varchar(255),
+        `entrepreneur_id` integer not null,
         `investment_round_id` integer not null,
         `investor_id` integer not null,
         primary key (`id`)
@@ -235,6 +235,11 @@ create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
        references `user_account` (`id`);
 
     alter table `application` 
+       add constraint `FKp6hc01e2bc6ly2q8rv4b7ubro` 
+       foreign key (`entrepreneur_id`) 
+       references `entrepreneur` (`id`);
+
+    alter table `application` 
        add constraint `FK30l9w5a7tidtoccodjps8rane` 
        foreign key (`investment_round_id`) 
        references `investment` (`id`);
@@ -273,4 +278,3 @@ create index IDXrk46ejdphqrewdo2fqltdufux on `investment` (`ticker`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-

@@ -1,5 +1,4 @@
 
-
     alter table `activity` 
        drop 
        foreign key `FK8cnxt6m91noqrbuk63luhvebv`;
@@ -11,6 +10,10 @@
     alter table `anonymous` 
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
+
+    alter table `application` 
+       drop 
+       foreign key `FKp6hc01e2bc6ly2q8rv4b7ubro`;
 
     alter table `application` 
        drop 
@@ -81,4 +84,3 @@
     drop table if exists `user_account`;
 
     drop table if exists `hibernate_sequence`;
-

@@ -28,10 +28,9 @@ public class EntrepreneurInvestmentRoundController extends AbstractController<En
 
 	@Autowired
 	private EntrepreneurInvestmentRoundDeleteService	deleteService;
-  
-  @Autowired
-	private EntrepreneurInvestmentRoundUpdateService	updateService;
 
+	@Autowired
+	private EntrepreneurInvestmentRoundUpdateService	updateService;
 
 
 	@PostConstruct
@@ -41,7 +40,6 @@ public class EntrepreneurInvestmentRoundController extends AbstractController<En
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
-
 
 	}
 

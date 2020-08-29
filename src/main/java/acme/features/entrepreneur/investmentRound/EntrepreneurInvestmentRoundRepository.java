@@ -6,9 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
 import acme.entities.applications.Application;
-
 import acme.entities.investmentRounds.Activity;
 import acme.entities.investmentRounds.Investment;
 import acme.entities.roles.Entrepreneur;
@@ -23,9 +21,8 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select i from Investment i")
 	Collection<Investment> findManyAll();
 
-	@Query("select a.investment from Activity a where a.investment.entrepreneur.id =?1")
+	@Query("select i from Investment i where i.entrepreneur.id =?1")
 	Collection<Investment> findInvestmentRoundsByEntrepreneurId(int id);
-
 
 	@Query("select a from Application a where a.investmentRound.id = ?1")
 	Collection<Application> findApplicationByInvestmentId(int id);
@@ -48,9 +45,10 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select i.finalMode from Investment i where i.id = ?1")
 	Boolean isFinalMode(int id);
 
-
-	@Query("select et from Entrepreneur et where et.userAccount.id = ?1")
+	@Query("select e from Entrepreneur e where e.id = ?1")
 	Entrepreneur findOneEntrepreneurByUserAccount(int userAccountId);
 
+	@Query("select i from Investment i where i.ticker = ?1")
+	Investment findInvestmentByTicker(String ticker);
 
 }

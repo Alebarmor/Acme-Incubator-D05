@@ -26,9 +26,7 @@ entrepreneur.investmentRound.list.label.amount = Cantidad
 entrepreneur.investmentRound.form.button.delete = Eliminar
 
 errors.investment.hasApplications = Una ronda de inversión puede ser eliminada siempre y cuando un inversor no lo haya solicitado
-
-
-
+errors.investment.ticker = Ya hay una inversion con ese ticker
 errors.investment.amount = La cantidad no suma los presupuestos del programa de trabajo
 errors.investment.isFinalMode = Una ronda de inversión no puede ser actualizada si está en modo final
 errors.investment.roundKind = Estos son los únicos valores correctos: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE

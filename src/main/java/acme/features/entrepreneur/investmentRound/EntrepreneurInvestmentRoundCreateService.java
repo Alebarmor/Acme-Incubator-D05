@@ -22,20 +22,26 @@ import acme.framework.services.AbstractCreateService;
 @Service
 public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateService<Entrepreneur, Investment> {
 
-	// Internal state --------------------------------------------------------------------------
+	@Autowired
+	EntrepreneurInvestmentRoundRepository	repository;
 
 	@Autowired
-	EntrepreneurInvestmentRoundRepository			repository;
-
-	@Autowired
-	private AdministratorCustomisationRepository	spamRepository;
+	AdministratorCustomisationRepository	spamRepository;
 
 
 	@Override
 	public boolean authorise(final Request<Investment> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		Entrepreneur entrepreneur;
+		Principal principal;
+
+		entrepreneur = this.repository.findOneEntrepreneurByUserAccount(request.getPrincipal().getActiveRoleId());
+		principal = request.getPrincipal();
+		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -44,7 +50,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "entrepreneur", "creationMoment");
+		request.bind(entity, errors, "creationMoment", "finalMode");
 	}
 
 	@Override
@@ -53,7 +59,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "roundKind", "title", "description", "description", "amount", "additionalInformation", "finalMode");
+		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation");
 	}
 
 	@Override
@@ -61,16 +67,14 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		Investment result;
 		result = new Investment();
 
-		Principal principal;
-		int userAccountId;
 		Entrepreneur Entrepreneur;
+		Entrepreneur = this.repository.findOneEntrepreneurByUserAccount(request.getPrincipal().getActiveRoleId());
 
-		principal = request.getPrincipal();
-		userAccountId = principal.getAccountId();
-		Entrepreneur = this.repository.findOneEntrepreneurByUserAccount(userAccountId);
+		Date date = new Date(System.currentTimeMillis() - 1);
 
 		result.setEntrepreneur(Entrepreneur);
 		result.setFinalMode(false);
+		result.setCreationMoment(date);
 
 		return result;
 	}
@@ -87,27 +91,20 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		List<Customisation> ca = (List<Customisation>) this.spamRepository.findManyAll();
 		Customisation c = ca.get(0);
 
+		// Validación del ticker
+
+		if (!errors.hasErrors("ticker")) {
+			Boolean unique = null;
+			unique = this.repository.findInvestmentByTicker(entity.getTicker()) != null;
+			errors.state(request, !unique, "ticker", "errors.investment.ticker");
+		}
+
 		// Validación del Round Kind
 
 		if (!errors.hasErrors("roundKind")) {
 			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES-A", "SERIES-B", "SERIES-C", "BRIDGE"));
 			Boolean correct = kinds.contains(entity.getRoundKind().toString());
 			errors.state(request, correct, "roundKind", "errors.investment.roundKind", entity.getRoundKind());
-		}
-
-		// Validación del Final Mode
-
-		if (!errors.hasErrors("finalMode") && entity.getFinalMode() == true) {
-			double sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
-			double actualAmount = entity.getAmount().getAmount();
-			Boolean correctAmount = actualAmount == sumaBudget;
-			if (!correctAmount) {
-				entity.setFinalMode(false);
-			} else {
-				entity.setFinalMode(true);
-			}
-			errors.state(request, correctAmount, "amount", "errors.investment.amount", entity.getAmount());
-			errors.state(request, !finalMode, "finalMode", "errors.investment.isFinalMode", entity.getFinalMode());
 		}
 
 		// Validación del Spam
@@ -126,9 +123,9 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 	@Override
 	public void create(final Request<Investment> request, final Investment entity) {
-		Date creationMomentDate;
-		creationMomentDate = new Date(System.currentTimeMillis() - 1);
-		entity.setCreationMoment(creationMomentDate);
+		assert request != null;
+		assert entity != null;
+
 		this.repository.save(entity);
 	}
 

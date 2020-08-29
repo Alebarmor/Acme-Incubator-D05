@@ -488,39 +488,6 @@
 		</property>
 	</bean>
 	
-
-	
-	<bean id="investment01" class="acme.entities.investmentRounds.Investment">
-		<property name="ticker" value="FNB-09-732312"/>
-		<property name="creationMoment" value="2020/07/27 00:00"/>
-		<property name="roundKind" value="ANGEL"/>
-		<property name="title" value="Sample investment 01"/>
-		<property name="description" value="This is the description of the investment"/>
-		<property name="amount" value="300.00 €"/>
-		<property name="additionalInformation" value="http://additionalexample.com"/>
-		<property name="finalMode" value="false" />
-		<property name="entrepreneur">
-			<ref bean="entrepreneur01"/>
-		</property>
-	</bean>
-	
-	
-	<bean id="investment02" class="acme.entities.investmentRounds.Investment">
-		<property name="ticker" value="FNA-09-732312"/>
-		<property name="creationMoment" value="2020/01/27 00:00"/>
-		<property name="roundKind" value="ANGEL"/>
-		<property name="title" value="Sample investment 02"/>
-		<property name="description" value="This is the description of the investment"/>
-		<property name="amount" value="300.00 €"/>
-		<property name="additionalInformation" value="http://additionalexample.com"/>
-		<property name="finalMode" value="true" />
-		<property name="entrepreneur">
-			<ref bean="entrepreneur01"/>
-		</property>
-	</bean>
-	
-	
-
 	<!-- Applications -->
 	
 	<bean name="application1" class="acme.entities.applications.Application">

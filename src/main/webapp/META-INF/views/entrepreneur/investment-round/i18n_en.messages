@@ -27,7 +27,7 @@ entrepreneur.investmentRound.form.button.delete = Delete
 
 
 errors.investment.hasApplications = An investment round can be deleted as long as no investor has applied for it
-
+errors.investment.ticker = There is an investment with that ticker
 errors.investment.amount = The amount does not sum up the budgets of the work programme
 errors.investment.isFinalMode = An investment round in final mode cannot be updated
 errors.investment.roundKind = These are the only correct values: SEED, ANGEL, SERIES_A, SERIES_B, SERIES_C and BRIDGE
