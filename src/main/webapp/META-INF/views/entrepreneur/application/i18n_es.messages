@@ -17,6 +17,8 @@ entrepreneur.application.form.label.creationMoment	= Momento de creación
 entrepreneur.application.form.label.statement = Estado
 entrepreneur.application.form.label.offer	= Oferta
 
+entrepreneur.application.form.label.referenceInvestmentRound = Ticker Ronda Inversion
+entrepreneur.application.form.label.InvestmentRoundEntrepreneur = Emprendedor
 
 
 entrepreneur.application.form.label.status = Estado

@@ -43,19 +43,12 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 		assert entity != null;
 		assert model != null;
 
-		/*
-		 * if (entity.getStatus().equals(ApplicationStatus.PENDING)) {
-		 * model.setAttribute("isPending", true);
-		 * }
-		 * 
-		 * model.setAttribute("worker", entity.getWorker().getIdentity().getFullName());
-		 * model.setAttribute("status", entity.getStatus().toString());
-		 * model.setAttribute("job", entity.getJob().getTitle());
-		 */
+		String referenceInvestmentRound = entity.getInvestmentRound().getTicker();
+		model.setAttribute("referenceInvestmentRound", referenceInvestmentRound);
+		String InvestmentRoundEntrepreneur = entity.getInvestmentRound().getEntrepreneur().getUserAccount().getUsername();
+		model.setAttribute("InvestmentRoundEntrepreneur", InvestmentRoundEntrepreneur);
 
-		//		request.unbind(entity, model, "referenceNumber", "creationMoment", "status", "rejectJustification", "statement", "skills", "qualifications", "job.reference", "worker.userAccount.username", "entrepreneur.userAccount.username");
-
-		request.unbind(entity, model, "ticker", "statement", "creationMoment", "offer", "investmentRound");
+		request.unbind(entity, model, "ticker", "statement", "creationMoment", "offer", "status", "rejectionJustification", "investmentRound");
 
 	}
 
