@@ -17,9 +17,29 @@
 
 <acme:form>
 	<acme:form-textbox code="entrepreneur.application.form.label.ticker" path="ticker"/>
+	
+	<acme:menu-separator />
+	<acme:form-textbox code="entrepreneur.application.form.label.referenceInvestmentRound" path="referenceInvestmentRound" readonly="true"/>
+	<acme:form-textbox code="entrepreneur.application.form.label.InvestmentRoundEntrepreneur" path="InvestmentRoundEntrepreneur" readonly="true"/>
+	<acme:menu-separator />
+	
 	<acme:form-moment code="entrepreneur.application.form.label.creationMoment" path="creationMoment"/>
 	<acme:form-textbox code="entrepreneur.application.form.label.statement" path="statement"/>
 	<acme:form-money code="entrepreneur.application.form.label.offer" path="offer"/>
+	
+	
+	<acme:form-select code="entrepreneur.application.form.label.status" path="status">
+		<jstl:forEach var="status" items="<%=acme.entities.applications.ApplicationStatus.values()%>">
+			<acme:form-option code="entrepreneur.application.form.label.status.${status.name().toLowerCase()}" value="${status.name()}"
+				selected="${(requestScope['status'] == status) ? 'true' : 'false'}" />
+		</jstl:forEach>
+	</acme:form-select>
+	<jstl:if test="${command == 'update' || status != 'ACCEPTED'}">
+		<acme:form-textarea code="entrepreneur.application.form.label.rejectionJustification" path="rejectionJustification" />
+	</jstl:if>
+	
+	<acme:form-submit test="${(command == 'show' && status == 'PENDING') || command == 'update'}"
+		code="entrepreneur.application.form.button.update" action="update" />
 	
 	<acme:form-return code="entrepreneur.application.form.button.return"/>
 </acme:form>

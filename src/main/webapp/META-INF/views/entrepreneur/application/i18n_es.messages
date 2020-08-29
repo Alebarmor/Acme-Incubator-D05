@@ -17,6 +17,18 @@ entrepreneur.application.form.label.creationMoment	= Momento de creación
 entrepreneur.application.form.label.statement = Estado
 entrepreneur.application.form.label.offer	= Oferta
 
+entrepreneur.application.form.label.referenceInvestmentRound = Ticker Ronda Inversion
+entrepreneur.application.form.label.InvestmentRoundEntrepreneur = Emprendedor
+
+
+entrepreneur.application.form.label.status = Estado
+entrepreneur.application.form.label.status.pending = Pendiente
+entrepreneur.application.form.label.status.accepted = Aceptado
+entrepreneur.application.form.label.status.rejected = Rechazado
+entrepreneur.application.form.label.rejectionJustification = Justificacion del rechazo
+entrepreneur.application.form.error.rejectionJustification = Debes justificar el rechazo
+entrepreneur.application.form.button.update = Actualizar estado
+
 
 entrepreneur.application.form.button.return = Volver
 

@@ -15,7 +15,10 @@ public interface EntrepreneurApplicationRepository extends AbstractRepository {
 	@Query("select a from Application a where a.id = ?1")
 	Application findOneApplicationById(int id);
 
-	@Query("select a from Application a where a.investmentRound.entrepreneur.id = ?1")
+	//	@Query("select a from Application a where a.investmentRound.entrepreneur.id = ?1")
+	//	Collection<Application> findManyByEntrepreneurId(int entrepreneurId);
+
+	@Query("select a from Application a where a.entrepreneur.id = ?1")
 	Collection<Application> findManyByEntrepreneurId(int entrepreneurId);
 
 }
