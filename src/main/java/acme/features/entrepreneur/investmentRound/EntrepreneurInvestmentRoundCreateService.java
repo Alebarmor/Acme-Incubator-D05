@@ -3,8 +3,10 @@ package acme.features.entrepreneur.investmentRound;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +52,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "creationMoment", "finalMode");
+		request.bind(entity, errors, "ticker", "creationMoment", "finalMode");
 	}
 
 	@Override
@@ -59,7 +61,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "roundKind", "title", "description", "amount", "additionalInformation");
+		request.unbind(entity, model, "roundKind", "title", "description", "amount", "additionalInformation");
 	}
 
 	@Override
@@ -72,9 +74,12 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 		Date date = new Date(System.currentTimeMillis() - 1);
 
+		String ticker = this.randomValidTicker(Entrepreneur.getSector(), date);
+
 		result.setEntrepreneur(Entrepreneur);
 		result.setFinalMode(false);
 		result.setCreationMoment(date);
+		result.setTicker(ticker);
 
 		return result;
 	}
@@ -85,26 +90,15 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 		assert errors != null;
 
-		int id = entity.getId();
-		Boolean finalMode = this.repository.isFinalMode(id);
-
 		List<Customisation> ca = (List<Customisation>) this.spamRepository.findManyAll();
 		Customisation c = ca.get(0);
-
-		// Validación del ticker
-
-		if (!errors.hasErrors("ticker")) {
-			Boolean unique = null;
-			unique = this.repository.findInvestmentByTicker(entity.getTicker()) != null;
-			errors.state(request, !unique, "ticker", "errors.investment.ticker");
-		}
 
 		// Validación del Round Kind
 
 		if (!errors.hasErrors("roundKind")) {
-			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES-A", "SERIES-B", "SERIES-C", "BRIDGE"));
+			List<String> kinds = new ArrayList<String>(Arrays.asList("SEED", "ANGEL", "SERIES_A", "SERIES_B", "SERIES_C", "BRIDGE"));
 			Boolean correct = kinds.contains(entity.getRoundKind().toString());
-			errors.state(request, correct, "roundKind", "errors.investment.roundKind", entity.getRoundKind());
+			errors.state(request, correct, "roundKind", "errors.investment.roundKind");
 		}
 
 		// Validación del Spam
@@ -127,6 +121,48 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		assert entity != null;
 
 		this.repository.save(entity);
+	}
+
+	public String randomValidTicker(final String a, final Date d) {
+		int n = 0;
+		Boolean unique = null;
+
+		String ticker = "";
+
+		while (n == 0) {
+			String first = String.valueOf(new Random().nextInt(9));
+			String second = String.valueOf(new Random().nextInt(9));
+			String third = String.valueOf(new Random().nextInt(9));
+			String fourth = String.valueOf(new Random().nextInt(9));
+			String fifth = String.valueOf(new Random().nextInt(9));
+			String sixth = String.valueOf(new Random().nextInt(9));
+			String numbers = first + second + third + fourth + fifth + sixth;
+			ticker = this.generateTicker(a, d, numbers);
+			unique = this.repository.findInvestmentByTicker(ticker) == null;
+			if (unique) {
+				n++;
+			}
+		}
+
+		String res = ticker;
+
+		return res;
+	}
+
+	public String generateTicker(final String a, final Date d, final String str) {
+		String res;
+
+		String activitySector = a;
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(d);
+		String year = String.valueOf(calendar.get(Calendar.YEAR));
+
+		activitySector = activitySector.substring(0, 3).toUpperCase();
+		year = year.substring(year.length() - 2);
+
+		res = activitySector + "-" + year + "-" + str;
+
+		return res;
 	}
 
 }
