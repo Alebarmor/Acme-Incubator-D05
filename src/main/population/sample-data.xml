@@ -523,7 +523,7 @@
 		<property name="offer" value="€ 19,000.50"/>
 		<property name="investmentRound" ref="investmentRound1"/> 
 		<property name="entrepreneur" ref="entrepreneur01" />
-		<property name="investor" ref="investor1Investor"/> 
+		<property name="investor" ref="investor3Investor"/> 
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
@@ -535,14 +535,14 @@
 		<property name="rejectionJustification" value="Example justification" />
 		<property name="investmentRound" ref="investmentRound1"/> 
 		<property name="entrepreneur" ref="entrepreneur01" />
-		<property name="investor" ref="investor1Investor"/> 
+		<property name="investor" ref="investor3Investor"/> 
 	</bean>
 	
 	
 	
 	<!-- Investors -->
 		
-		<bean name="investor1UserAccount" class="acme.framework.entities.UserAccount">
+	<!--  	<bean name="investor1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="investor1"/>
 		<property name="password" value="investor1"/>
 		<property name="enabled" value="true"/>
@@ -572,8 +572,8 @@
 		<property name="userAccount" ref="investor1UserAccount"/>
 	</bean>	
 	
+	-->
 	
-	<!--  -->
 	<bean name="investor2UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="investor2" />
 		<property name="password" value="investor2" />
@@ -602,6 +602,37 @@
 
 	<bean name="investor2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="investor2UserAccount" />
+	</bean>
+	
+	
+	<bean name="investor3UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="investor3" />
+		<property name="password" value="investor3" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Investor 3" />
+				<property name="surname" value="Two" />
+				<property name="email" value="investor3@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="investor3Investor" />
+				<ref bean="investor3Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="investor3Investor" class="acme.entities.roles.Investor">
+		<property name="firmName" value="Entrepreneurs3" />
+		<property name="sector" value="Science" />
+		<property name="profile" value="Profile3" />
+		<property name="userAccount" ref="investor3UserAccount" />
+	</bean>
+
+	<bean name="investor3Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="investor3UserAccount" />
 	</bean>
 		
 	<!-- Investment rounds -->
