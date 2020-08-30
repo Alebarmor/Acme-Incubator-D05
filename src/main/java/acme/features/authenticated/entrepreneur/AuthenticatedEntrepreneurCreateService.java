@@ -72,6 +72,12 @@ public class AuthenticatedEntrepreneurCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Boolean tamIns = entity.getSector().length() < 3;
+		if (!tamIns) {
+			errors.state(request, true, "sector", "errors.entrepreneur.short");
+
+		}
 	}
 
 	@Override

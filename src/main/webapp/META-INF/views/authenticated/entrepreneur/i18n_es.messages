@@ -9,3 +9,4 @@ authenticated.entrepreneur.form.label.skills = Habilidades:
 authenticated.entrepreneur.form.button.create = Registrarse
 authenticated.entrepreneur.form.button.update = Actualizar
 authenticated.entrepreneur.form.button.return = Volver
+errors.entrepreneur.short = El sector de actividad debe tener 3 o más letras

@@ -9,3 +9,5 @@ authenticated.entrepreneur.form.label.skills = Skills:
 authenticated.entrepreneur.form.button.create = Register
 authenticated.entrepreneur.form.button.update = Update
 authenticated.entrepreneur.form.button.return = Return
+
+errors.entrepreneur.short = The activity sector must contain 3 or more characters
