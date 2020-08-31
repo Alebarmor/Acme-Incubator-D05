@@ -4,6 +4,8 @@ package acme.entities.roles;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.Length;
+
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +21,7 @@ public class Entrepreneur extends UserRole {
 	private String				startUpName;
 
 	@NotBlank
+	@Length(min = 3)
 	private String				sector;
 
 	@NotBlank

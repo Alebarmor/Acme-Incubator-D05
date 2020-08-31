@@ -315,16 +315,16 @@ Investor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
+      <x>360</x>
       <y>440</y>
-      <w>184</w>
+      <w>232</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Entrepreneur
 --
 + startUpName: String {NotBlank}
-+ sector: String {NotBlank}
++ sector: String {NotBlank, Length(min = 3)}
 + qualifications: String {NotBlank}
 + skills: String {NotBlank}
 </panel_attributes>
