@@ -822,4 +822,46 @@
 		<property name="bookkeeper" ref="bookkeeper2Bookkeeper"/>
 	</bean>
 	
+	<!--  Forums -->
+	
+	<bean name="forum1" class="acme.entities.forums.Forum">
+		<property name="title" value="Forum 1" />
+		<property name="users" value="entrepreneur1,investor2" />
+		<property name="investment" ref="investment01" />
+	</bean>
+
+	<bean name="forum2" class="acme.entities.forums.Forum">
+		<property name="title" value="Forum 2" />
+		<property name="users" value="entrepreneur2,investor3" />
+		<property name="investment" ref="investment02" />
+	</bean>
+	
+	<bean name="forum3" class="acme.entities.forums.Forum">
+		<property name="title" value="Forum 3" />
+		<property name="users" value="entrepreneur1Entrepreneur,entrepreneur2Entrepreneur,investor3,investor2" />
+		<property name="investment" ref="investment01" />
+	</bean>
+
+
+	<!-- Messages -->
+	
+	<bean name="message1" class="acme.entities.messages.Message">
+		<property name="title" value="Message 1" />
+		<property name="creationMoment" value="2020/01/01 20:00" />
+		<property name="tags" value="" />
+		<property name="body" value="Body message 1" />
+		<property name="user" ref="entrepreneur1Authenticated" />
+		<property name="forum" ref="forum1" />
+	</bean>
+	<!--
+	<bean name="message2" class="acme.entities.messages.Message">
+		<property name="title" value="Message 2" />
+		<property name="creationMoment" value="2020/01/02 10:00" />
+		<property name="tags" value="tag1" />
+		<property name="body" value="Body message 2" />
+		<property name="user" ref="investor1Investor" />
+		<property name="forum" ref="forum1" />
+	</bean>
+	-->
+	
 </beans>
