@@ -37,8 +37,6 @@
 			<acme:menu-suboption code="master.menu.anonymous.tool.list" action="/anonymous/tool/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.notice.list" action="/anonymous/notice/list"/>
-			<acme:menu-separator/>
-		<acme:menu-suboption code="master.menu.authenticated.forum.list-mine" action="/authenticated/forum/list-mine"/>
 		</acme:menu-option>
 
 		
@@ -59,6 +57,8 @@
 		<acme:menu-suboption code="master.menu.authenticated.challenge.list" action="/authenticated/challenge/list"/>
 		<acme:menu-separator/>
 		<acme:menu-suboption code="master.menu.authenticated.investment.list" action="/authenticated/investment/list"/>
+		<acme:menu-separator/>
+		<acme:menu-suboption code="master.menu.authenticated.forum.list-mine" action="/authenticated/forum/list-mine"/>
 		</acme:menu-option>
 		
 		
