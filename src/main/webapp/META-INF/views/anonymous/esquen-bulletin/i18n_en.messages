@@ -1,0 +1,9 @@
+anonymous.esquen-bulletin.list.label.moment = Moment
+anonymous.esquen-bulletin.list.label.author = Author
+anonymous.esquen-bulletin.list.label.text = Text
+
+anonymous.esquen-bulletin.form.label.author = Author:
+anonymous.esquen-bulletin.form.label.text = Text:
+
+anonymous.esquen-bulletin.form.button.create = Create
+anonymous.esquen-bulletin.form.button.return = Return

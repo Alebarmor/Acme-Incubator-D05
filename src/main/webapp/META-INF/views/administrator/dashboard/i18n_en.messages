@@ -1,0 +1,18 @@
+administrator.dashboard.form.title = Dashboard
+
+administrator.dashboard.form.table.cell.number-notices				= 	Number of notices
+administrator.dashboard.form.table.cell.number-technology-records	= 	Number of technology records
+administrator.dashboard.form.table.cell.number-tools	 			= 	Number of tools
+
+administrator.dashboard.form.table.cell.stats.min					= 	Minimum
+administrator.dashboard.form.table.cell.stats.max					=	Maximum
+administrator.dashboard.form.table.cell.stats.avg					=	Average
+administrator.dashboard.form.table.cell.stats.stddev				=	Standard deviation
+
+administrator.dashboard.form.table.title.money-active-inquires		=	Money of the active inquires
+administrator.dashboard.form.table.title.money-active-overtures		=	Money of the active overtures
+
+administrator.dashboard.form.chart.title.technology-by-sector		=	Technology records by activity sector
+administrator.dashboard.form.chart.title.technology-by-source		=	Technology records by source
+administrator.dashboard.form.chart.title.tools-by-sector			=	Tools by sector
+administrator.dashboard.form.chart.title.tools-by-source			=	Tools by source

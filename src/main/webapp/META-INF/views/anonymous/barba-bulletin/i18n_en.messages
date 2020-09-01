@@ -1,0 +1,9 @@
+anonymous.barba-bulletin.list.label.moment = Moment
+anonymous.barba-bulletin.list.label.author = Author
+anonymous.barba-bulletin.list.label.text = Text
+
+anonymous.barba-bulletin.form.label.author = Author:
+anonymous.barba-bulletin.form.label.text = Text:
+
+anonymous.barba-bulletin.form.button.create = Create
+anonymous.barba-bulletin.form.button.return = Return

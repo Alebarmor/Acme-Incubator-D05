@@ -1,0 +1,11 @@
+bookkeeper.accounting.list.label.title = Title
+bookkeeper.accounting.list.label.creationMoment = Creation Moment
+
+bookkeeper.accounting.form.label.title = Title:
+bookkeeper.accounting.form.label.status = Status:
+bookkeeper.accounting.form.label.creationMoment = Creation Moment:
+bookkeeper.accounting.form.label.body = Body:
+
+bookkeeper.accounting.form.button.return = Return
+
+

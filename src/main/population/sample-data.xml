@@ -17,6 +17,29 @@
 
 	<import resource="conversion-service.xml" />
 	
+	<!--  Bulletins -->
+	
+	<bean id="BarbaBulletin01" class="acme.entities.bulletins.BarbaBulletin">
+		<property name="author" value="Alejandro Barba"/>
+		<property name="text" value="Lorem ipsum dolor sit amet, consectetur 
+			adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+		<property name="moment" value="2019/09/09 10:00"/>
+	</bean>
+	
+	<bean id="LucasBulletin01" class="acme.entities.bulletins.LucasBulletin">
+		<property name="author" value="Jaime Lucas"/>
+		<property name="text" value="Duis aute irure dolor in reprehenderit in 
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
+		<property name="moment" value="2019/09/07 00:00"/>
+	</bean>
+	
+	<bean id="EsquenBulletin01" class="acme.entities.bulletins.EsquenBulletin">
+		<property name="author" value="Lizseth Elizabeth Esquen"/>
+		<property name="text" value="Ut enim ad minim veniam, quis nostrud 
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+		<property name="moment" value="2019/08/09 15:55"/>
+	</bean>
+	
 	 <!-- Challenge -->
 
 	<bean class="acme.entities.challenges.Challenge" id="challenge1">
@@ -296,6 +319,33 @@
 		<property name="deadline" value="2019/10/31 14:30"/>
 		<property name="relatedNotices" value="https://google.com"/>
 		<property name="body" value="This is the 4rd body text"/>
+	</bean>
+	
+	<!-- Banners  -->
+
+	<bean id="banner01" class="acme.entities.banners.Banner">
+		<property name="picture" value="https://ast.wikipedia.org/wiki/Sol#/media/Ficheru:The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg"/>
+		<property name="slogan" value="PRAISE THE SUN!"/>
+		<property name="url" value="https://es.wikipedia.org/wiki/Sol"/>
+		<property name="holder" value="Alejandro Perez Ruiz"/>
+		<property name="number" value="5118686347182952"/>
+		<property name="brand" value="Mastercard"/>
+		<property name="expirationDate" value="01/2024"/>
+		<property name="cvv" value="373"/>
+	</bean>
+
+	<bean id="banner02" class="acme.entities.banners.Banner">
+		<property name="picture" value="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg"/>
+		<property name="slogan" value="Enjoy watching ;)"/>
+		<property name="url" value="https://www.youtube.com/"/>
+	</bean>
+	
+	<!-- Customisation -->
+
+	<bean id="Customisation" class="acme.entities.customisations.Customisation">
+		<property name="spam" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millón de dólares"/>
+		<property name="threshold" value="2.50"/>
+		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"/>
 	</bean>
 	
 	<!-- Inquiries  -->
@@ -692,13 +742,84 @@
 		<property name="finalMode" value="false"/>
 	</bean>
 	
+		<!-- Bookkeepers -->
+		
+		<bean name="bookkeeper1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="bookkeeper"/>
+		<property name="password" value="bookkeeper"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Bookkeeper"/>
+				<property name="surname" value="Zero"/>
+				<property name="email" value="bookkeeper@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="bookkeeper1Bookkeeper"/>
+				<ref bean="bookkeeper1Authenticated"/>
+			</list>
+		</property>
+	</bean>
 	
-	<!-- Customisation -->
-
-	<bean id="Customisation" class="acme.entities.customisations.Customisation">
-		<property name="spam" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millón de dólares"/>
-		<property name="threshold" value="2.50"/>
-		<property name="activitySectors" value="Technology,Science,Arts,Business,Health"/>
+	<bean name="bookkeeper1Bookkeeper" class="acme.entities.roles.Bookkeeper">
+		<property name="firmName" value="Bookkeeper co."/>
+		<property name="responsabilityStatement" value="It's my responsability, it's my war"/>
+		<property name="userAccount" ref="bookkeeper1UserAccount"/>
+	</bean>
+	
+	<bean name="bookkeeper1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="bookkeeper1UserAccount"/>
+	</bean>
+	
+	<bean name="bookkeeper2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="bookkeeper2"/>
+		<property name="password" value="bookkeeper2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Bookkeeper"/>
+				<property name="surname" value="Zero"/>
+				<property name="email" value="bookkeeper@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="bookkeeper2Bookkeeper"/>
+				<ref bean="bookkeeper2Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="bookkeeper2Bookkeeper" class="acme.entities.roles.Bookkeeper">
+		<property name="firmName" value="Bookkeeper 2 co."/>
+		<property name="responsabilityStatement" value="It's my responsability, it's my war, again..."/>
+		<property name="userAccount" ref="bookkeeper2UserAccount"/>
+	</bean>
+	
+	<bean name="bookkeeper2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="bookkeeper2UserAccount"/>
+	</bean>
+	
+	<!-- Accounting records -->
+	
+	<bean name="accounting01" class="acme.entities.accountingRecords.AccountingRecord">
+		<property name="title" value="Accounting Record 01"/>
+		<property name="status" value="PUBLISHED"/>
+		<property name="creationMoment" value="2000/11/11 14:30"/>
+		<property name="body" value="This is a body: ヾ｜*￣ー￣｜*￣ー￣｜/”　　ヾ｜*￣∇￣*｜"/>
+		<property name="investment" ref="investment01"/>
+		<property name="bookkeeper" ref="bookkeeper1Bookkeeper"/>
+	</bean>
+	
+	<bean name="accounting02" class="acme.entities.accountingRecords.AccountingRecord">
+		<property name="title" value="Accounting Record 02"/>
+		<property name="status" value="DRAFT"/>
+		<property name="creationMoment" value="2010/11/11 00:30"/>
+		<property name="body" value="This is the same body: ヾ｜*￣ー￣｜*￣ー￣｜/”　　ヾ｜*￣∇￣*｜"/>
+		<property name="investment" ref="investment02"/>
+		<property name="bookkeeper" ref="bookkeeper2Bookkeeper"/>
 	</bean>
 	
 </beans>

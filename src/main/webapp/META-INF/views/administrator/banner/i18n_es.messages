@@ -1,0 +1,18 @@
+administrator.banner.list.label.slogan = Eslogan
+administrator.banner.list.label.holder = Imagen
+
+administrator.banner.form.label.picture = Imagen:
+administrator.banner.form.label.slogan = Eslogan:
+administrator.banner.form.label.url = URL:
+
+administrator.banner.form.label.creditCard = Tarjeta de crédito
+administrator.banner.form.label.holder = Nombre del propietario:
+administrator.banner.form.label.number = Número:
+administrator.banner.form.label.brand = Marca:
+administrator.banner.form.label.expirationDate = Fecha de expiración:
+administrator.banner.form.label.cvv = CVV:
+
+administrator.banner.form.button.create = Crear
+administrator.banner.form.button.update = Actualizar
+administrator.banner.form.button.delete = Borrar
+administrator.banner.form.button.return = Volver

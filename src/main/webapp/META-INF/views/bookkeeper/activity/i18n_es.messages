@@ -1,0 +1,9 @@
+bookkeeper.activity.list.label.title = Título
+bookkeeper.activity.list.label.budget = Presupuesto
+
+bookkeeper.activity.form.label.title = Título:
+bookkeeper.activity.form.label.start = Inicio:
+bookkeeper.activity.form.label.end = Fin:
+bookkeeper.activity.form.label.budget = Presupuesto:
+
+bookkeeper.activity.form.button.return = Volver
