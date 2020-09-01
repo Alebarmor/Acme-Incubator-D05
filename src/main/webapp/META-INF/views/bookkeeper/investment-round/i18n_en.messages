@@ -1,0 +1,20 @@
+bookkeeper.investmentRound.form.label.title = Title:
+bookkeeper.investmentRound.form.label.ticker = Ticker:
+bookkeeper.investmentRound.form.label.creationMoment = Creation moment:
+bookkeeper.investmentRound.form.label.roundKind = Kind:
+bookkeeper.investmentRound.form.label.description = Description:
+bookkeeper.investmentRound.form.label.amount = Amount:
+bookkeeper.investmentRound.form.label.additionalInformation = Additional information:
+bookkeeper.investmentRound.activity.list = Work programme
+bookkeeper.investmentRound.form.label.statement = Statement:
+bookkeeper.investmentRound.form.label.offer = Offer:
+bookkeeper.investmentRound.form.label.entrepreneur = Entrepreneur:
+bookkeeper.investmentRound.accounting.list = Accounting Records
+
+bookkeeper.investmentRound.form.button.return = Return
+
+bookkeeper.investmentRound.list.label.title = Title
+bookkeeper.investmentRound.list.label.ticker = Ticker
+bookkeeper.investmentRound.list.label.amount = Amount
+
+

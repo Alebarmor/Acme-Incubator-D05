@@ -1,0 +1,18 @@
+administrator.dashboard.form.title = Panel de estadísticas
+
+administrator.dashboard.form.table.cell.number-notices				= 	Número de avisos
+administrator.dashboard.form.table.cell.number-technology-records	= 	Número de registros tecnológicos
+administrator.dashboard.form.table.cell.number-tools	 			= 	Número de herramientas
+
+administrator.dashboard.form.table.cell.stats.min					= 	Mínimo
+administrator.dashboard.form.table.cell.stats.max					=	Máximo
+administrator.dashboard.form.table.cell.stats.avg					=	Media
+administrator.dashboard.form.table.cell.stats.stddev				=	Desviación estándar
+
+administrator.dashboard.form.table.title.money-active-inquires		=	Dinero de las preguntas vigentes
+administrator.dashboard.form.table.title.money-active-overtures		=	Dinero de las propuestas vigentes
+
+administrator.dashboard.form.chart.title.technology-by-sector		=	Registros tecnológicos por sectores de actividad
+administrator.dashboard.form.chart.title.technology-by-source		=	Registros tecnológicos por fuentes
+administrator.dashboard.form.chart.title.tools-by-sector			=	Herramientas por sector
+administrator.dashboard.form.chart.title.tools-by-source			=	Herramientas por fuentes

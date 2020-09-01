@@ -43,7 +43,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 
-master.menu.anonymous.favourite-link.alebarmor = Enlace favorito de Ale
+master.menu.anonymous.favourite-link.alejandro = Enlace favorito de Ale
 master.menu.anonymous.favourite-link.lizseth = Enlace favorito de Lizseth
 master.menu.anonymous.favourite-link.jaime = Enlace favorito de Jaime
 
@@ -56,6 +56,17 @@ master.menu.anonymous.tool.list = Lista de herramientas
 
 master.menu.anonymous.notice.list = Lista de avisos activos
 master.menu.anonymous.notice = Avisos
+
+# master.menu.anonymous.bulletin #######################################################
+
+master.menu.anonymous.bulletin = Boletines
+
+master.menu.anonymous.bulletin.barba = Boletín de Barba
+master.menu.anonymous.bulletin.barba.create = Crear boletín de Barba
+master.menu.anonymous.bulletin.esquen = Boletín de Esquen
+master.menu.anonymous.bulletin.esquen.create = Crear boletín de Esquen
+master.menu.anonymous.bulletin.lucas = Boletín de Lucas
+master.menu.anonymous.bulletin.lucas.create = Crear boletín de Lucas
 
 # master.menu.authenticated #######################################################
 
@@ -82,6 +93,9 @@ master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.shutdown = Parar el sistema
 
+master.menu.administrator.dashboard = Panel de estadísticas
+
+master.menu.administrator.customisation = Customización
 
 master.menu.administrator.technologyRecord.list = Lista de registros de tecnología
 master.menu.administrator.technologyRecord.create = Crear registro de tecnología
@@ -101,7 +115,8 @@ master.menu.administrator.challenge.create = Crear reto
 master.menu.administrator.overture.list = Lista de propuestas
 master.menu.administrator.overture.create = Crear propuesta
 
-master.menu.administrator.customisation = Customización
+master.menu.administrator.banner = Pancartas
+master.menu.administrator.banner.create = Crear pancartas
 
 # master.menu.authenticated ###################################################
 master.menu.authenticated = Autenticado
@@ -110,6 +125,12 @@ master.menu.authenticated = Autenticado
 
 master.menu.entrepreneur = Empresario
 master.menu.entrepreneur.investment.list = Mi lista de inversiones
+
+# master.menu.bookkeeper ###################################################
+
+master.menu.bookkeeper = Contable
+master.menu.bookkeeper.investment.list-mine = Lista de inversiones con mis registros contables
+master.menu.bookkeeper.investment.list-not = Lista de inversiones sin mis registros contables
 
 # master.menu.provider ########################################################
 

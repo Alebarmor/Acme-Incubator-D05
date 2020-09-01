@@ -19,6 +19,18 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+		<acme:menu-suboption code="master.menu.anonymous.favourite-link.lizseth" action="http://www.youtube.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link.jaime" action="http://www.google.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link.alejandro" action="https://twitter.com/home?lang=es"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.barba" action="/anonymous/barba-bulletin/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.barba.create" action="/anonymous/barba-bulletin/create"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.esquen" action="/anonymous/esquen-bulletin/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.barba.create" action="/anonymous/esquen-bulletin/create"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.lucas" action="/anonymous/lucas-bulletin/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.bulletin.lucas.create" action="/anonymous/lucas-bulletin/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.technologyRecord.list" action="/anonymous/technology-record/list"/>
 			<acme:menu-separator/>
@@ -51,6 +63,10 @@
 		
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+		<acme:menu-suboption code="master.menu.administrator.customisation" action="/administrator/customisation/show"/>
+      	<acme:menu-separator/>
+		<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
+		<acme:menu-separator/>
 		<acme:menu-suboption code="master.menu.administrator.notice.list" action="/administrator/notice/list"/>
 		<acme:menu-separator/>
 		<acme:menu-suboption code="master.menu.administrator.notice.create" action="/administrator/notice/create"/>
@@ -79,7 +95,8 @@
 		<acme:menu-separator/>
 		<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 		<acme:menu-separator/>
-		<acme:menu-suboption code="master.menu.administrator.customisation" action="/administrator/customisation/show"/>
+		<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
+		<acme:menu-suboption code="master.menu.administrator.banner.create" action="/administrator/banner/create"/>
 		</acme:menu-option>
 		
 		
@@ -88,6 +105,12 @@
 		<acme:menu-suboption code="master.menu.entrepreneur.investment.list" action="/entrepreneur/investment/list-mine"/>
 		<acme:menu-suboption code="master.menu.entrepreneur.investment.create" action="/entrepreneur/investment/create"/>
 		<acme:menu-suboption code="master.menu.entrepreneur.application.list" action="/entrepreneur/application/list-mine"/>
+		</acme:menu-option>	
+		
+		<!-- Bookkeeper  -->
+		<acme:menu-option code="master.menu.bookkeeper" access="hasRole('Bookkeeper')">
+		<acme:menu-suboption code="master.menu.bookkeeper.investment.list-mine" action="/bookkeeper/investment/list-mine"/>
+		<acme:menu-suboption code="master.menu.bookkeeper.investment.list-not" action="/bookkeeper/investment/list-not-mine"/>
 		</acme:menu-option>	
 		
 		<!-- Investor  -->
