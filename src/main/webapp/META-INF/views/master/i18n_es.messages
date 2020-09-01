@@ -9,6 +9,9 @@
 # they accept any liabilities with respect to them.
 
 
+
+master.menu.authenticated.forum.list-mine = Mis listas de foros
+
 # master.menu.investor ###################################################
 master.menu.investor = Inversor
 master.menu.investor.application.list= Lista de aplicaciones
